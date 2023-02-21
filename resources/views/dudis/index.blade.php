@@ -10,6 +10,8 @@
                         data-bs-target="#form-create">
                         <i class="fa fa-plus"></i>
                     </button>
+                    <a type="button" class="btn btn-success mb-2" href="/dudis-export">
+                    <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 </div>
             </div>
             <div class="card-body">

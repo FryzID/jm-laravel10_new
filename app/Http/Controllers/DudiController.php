@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Dudi;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\DudiExport;
 
 class DudiController extends Controller
 {
@@ -111,5 +113,9 @@ class DudiController extends Controller
     {
         Dudi::find($id)->delete();
         return redirect('dudis')->with('success', 'Selamat Data Telah Dihapus!!');
+    }
+
+    public function dudiexport(){
+        return Excel::download(new DudiExport, 'Data-Dudi.xlsx');
     }
 }

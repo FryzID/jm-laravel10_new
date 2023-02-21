@@ -38,3 +38,5 @@ Route::resource('siswapkls', SiswaPklController::class);
 Route::resource('humas', HumasController::class);
 Route::resource('jurnals', JurnalController::class);
 
+Route::get('/dudis-export',[DudiController::class,'dudiexport'])->name('export-dudi');
+
