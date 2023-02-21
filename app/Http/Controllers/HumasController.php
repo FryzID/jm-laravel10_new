@@ -45,6 +45,7 @@ class HumasController extends Controller
             'password' => bcrypt($request->nip),'required|max:225',
         ]);
 
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         return redirect('humas');
     }
 

@@ -52,7 +52,7 @@ class KelasSiswaController extends Controller
 
         KelasSiswa::create($kelassiswas);
 
-        // $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
         return redirect('kelassiswas');
 

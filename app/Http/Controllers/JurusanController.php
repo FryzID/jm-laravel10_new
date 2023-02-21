@@ -44,6 +44,7 @@ class JurusanController extends Controller
 
         Jurusan::create($jurusan);
 
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         return redirect('jurusans');
     }
 

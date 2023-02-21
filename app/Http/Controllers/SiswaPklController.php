@@ -52,7 +52,7 @@ class SiswaPklController extends Controller
 
         SiswaPkl::create($siswapkls);
 
-        // $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
         return redirect('siswapkls');
     }

@@ -52,7 +52,7 @@ class JurnalController extends Controller
 
         Jurnal::create($jurnals);
 
-        // $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
         return redirect('jurnals');
     }

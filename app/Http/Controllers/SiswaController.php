@@ -45,6 +45,7 @@ class SiswaController extends Controller
             'password' => bcrypt($request->nis),'required|max:225',
         ]);
 
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         return redirect('siswas');
     }
 

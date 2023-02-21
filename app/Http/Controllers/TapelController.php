@@ -44,6 +44,7 @@ class TapelController extends Controller
 
         Tapel::create($tapels);
 
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         return redirect('tapels');
     }
 
