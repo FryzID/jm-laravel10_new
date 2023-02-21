@@ -13,14 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+        Schema::create('sertifikats', function (Blueprint $table) {
+            $table->id('sertifikat_id');
+            $table->unsignedBigInteger('siswapkl_id');
+            $table->string('nama_sertifikat');
+            $table->text('dokumen');
             $table->timestamps();
+
+            $table->foreign('siswapkl_id')->references('siswapkl_id')->on('siswa_pkls');
         });
     }
 
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('sertifikats');
     }
 };
