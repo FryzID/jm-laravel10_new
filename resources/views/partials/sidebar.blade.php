@@ -14,47 +14,19 @@
                 <a class="nav-link text-white {{ (Request::segment(1) == '') ? "active bg-gradient-success" : "" }}"
                     href="/">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">dashboard</i>
+                        <i class="fa fa-home me-sm-1"></i>
                     </div>
                     <span class="nav-link-text ms-1">Dashboard</span>
                 </a>
             </li>
-
             <li class="nav-item mt-3">
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MASTER DATA</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'dudis') ? "active bg-gradient-success" : "" }}"
-                    href="/dudis">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dudi</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'gurus') ? "active bg-gradient-success" : "" }}"
-                    href="/gurus">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Guru</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'humas') ? "active bg-gradient-success" : "" }}"
-                    href="/humas">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Humas</span>
-                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'jurusans') ? "active bg-gradient-success" : "" }}"
                     href="/jurusans">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
+                        <i class="fa fa-user me-sm-1"></i>
                     </div>
                     <span class="nav-link-text ms-1">Jurusan</span>
                 </a>
@@ -63,45 +35,72 @@
                 <a class="nav-link text-white {{ (Request::segment(1) == 'kelas') ? "active bg-gradient-success" : "" }}"
                     href="/kelas">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
+                        <i class="fa fa-user me-sm-1"></i>
                     </div>
                     <span class="nav-link-text ms-1">Kelas</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'kelassiswas') ? "active bg-gradient-success" : "" }}"
-                    href="/kelassiswas">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Kelas Siswa</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'siswas') ? "active bg-gradient-success" : "" }}"
-                    href="/siswas">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Siswa</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'siswapkls') ? "active bg-gradient-success" : "" }}"
-                    href="/siswapkls">
-                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Siswa PKL</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'tapels') ? "active bg-gradient-success" : "" }}"
                     href="/tapels">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">table_view</i>
+                        <i class="fa fa-user me-sm-1"></i>
                     </div>
                     <span class="nav-link-text ms-1">Tapel</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'dudis') ? "active bg-gradient-success" : "" }}"
+                    href="/dudis">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Dudi</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'gurus') ? "active bg-gradient-success" : "" }}"
+                    href="/gurus">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Guru</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'humas') ? "active bg-gradient-success" : "" }}"
+                    href="/humas">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Humas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'siswas') ? "active bg-gradient-success" : "" }}"
+                    href="/siswas">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Siswa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'kelassiswas') ? "active bg-gradient-success" : "" }}"
+                    href="/kelassiswas">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Kelas Siswa</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'siswapkls') ? "active bg-gradient-success" : "" }}"
+                    href="/siswapkls">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Siswa PKL</span>
                 </a>
             </li>
         </ul>
