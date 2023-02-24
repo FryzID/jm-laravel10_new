@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('nip')->unique();
             $table->string('nama_guru');
             $table->string('username');
+            $table->string('level');
             $table->string('password');
             $table->timestamps();
         });

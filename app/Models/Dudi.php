@@ -2,12 +2,23 @@
 
 namespace App\Models;
 
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use App\Models\Jurusan;
 
-class Dudi extends Model
+class Dudi extends Authenticatable
 {
+    use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */ 
+
     use HasFactory;
     protected $table = "dudis";
     protected $primaryKey = 'dudi_id';
@@ -18,6 +29,7 @@ class Dudi extends Model
         'password',
         'alamat',
         'telepon',
+        'level',
         'jurusan_id',
     ];
 

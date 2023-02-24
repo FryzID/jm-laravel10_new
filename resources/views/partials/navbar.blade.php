@@ -45,6 +45,12 @@
                         <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
                     </a>
                 </li>
+                <li class="nav-item px-3 d-flex align-items-center">
+                    <a href="/logout" class="nav-link text-body p-0">
+                        <i class="fas fa-sign-out-alt fixed-plugin-button-nav cursor-pointer"></i>
+                        <span class="d-sm-inline d-none">Logout</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

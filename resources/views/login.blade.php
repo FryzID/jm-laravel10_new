@@ -18,11 +18,11 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form action="/login" method="post" class="text-start">
+                            <form action="{{ route ('postlogin') }}" method="post">
                                     @csrf
                                     <div class="input-group input-group-outline my-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control">
+                                        <label class="form-label">Username</label>
+                                        <input type="text" name="username" class="form-control">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="form-label">Password</label>
@@ -66,6 +66,7 @@
         </div>
     </main>
     @include('partials.script')
+    @include('sweetalert::alert')
 </body>
 
 </html>

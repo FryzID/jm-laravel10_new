@@ -107,10 +107,8 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
         <div class="mx-3">
-            <form action="/logout" method="post">
-                @csrf
-                <button type="submit" class="btn bg-gradient-success mt-4 w-100" type="button">Logout</button>
-            </form>
+            <a href="/logout" class="btn bg-gradient-success mt-4 w-100" type="button">
+                <i class="fas fa-sign-out-alt fixed-plugin-button-nav cursor-pointer"></i> Logout</a>
         </div>
     </div>
 </aside>

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('alamat');
             $table->integer('telepon');
             $table->unsignedBigInteger('jurusan_id');
+            $table->string('level');
             $table->timestamps();
 
             $table->foreign('jurusan_id')->references('jurusan_id')->on('jurusans');

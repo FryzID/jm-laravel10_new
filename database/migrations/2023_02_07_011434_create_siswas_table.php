@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('nis')->unique();
             $table->string('nama_siswa');
             $table->string('username');
+            $table->string('level');
             $table->string('password');
             $table->timestamps();
         });
