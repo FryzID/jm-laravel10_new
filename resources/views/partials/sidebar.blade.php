@@ -3,7 +3,7 @@
     id="sidenav-main">
     <div class="bg-white border rounded">
         <a class="px-3" href="/" target="_blank">
-            <!-- <img src="{{ asset('assets/img/logo-ct.png') }}" class="" width="140" height="120" alt="main_logo"> -->
+            <img src="{{ asset('assets/img/sijuma.png') }}" class="" width="200" height="90" alt="main_logo">
             <span class="ms-1 font-weight-bold text-white">SIJUMA</span>
         </a>
     </div>
