@@ -18,7 +18,7 @@ class KelasController extends Controller
         $data = Kelas::with('jurusan')->get();
         $level_kelas = ["XIII", "XII", "XI", "X"];
         $nama_kelas = ["A", "B", "C", "D"];
-        return view('kelas.index', compact('data', 'level_kelas', 'nama_kelas'), [
+        return view('Humas.kelas.index', compact('data', 'level_kelas', 'nama_kelas'), [
             'title' => "Kelas",
             'kelas' => Kelas::latest()->get(),
             'jurusan' => Jurusan::all(),
@@ -54,7 +54,7 @@ class KelasController extends Controller
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
-        return redirect('kelas');
+        return redirect('/humas/kelas');
     }
 
     /**

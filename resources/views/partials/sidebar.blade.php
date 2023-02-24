@@ -23,8 +23,8 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MASTER DATA</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'jurusans') ? "active bg-gradient-success" : "" }}"
-                    href="/jurusans">
+                <a class="nav-link text-white {{ (Request::segment(1) == 'jurusan') ? "active bg-gradient-success" : "" }}"
+                    href="/humas/jurusan">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -33,7 +33,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'kelas') ? "active bg-gradient-success" : "" }}"
-                    href="/kelas">
+                    href="/humas/kelas">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -42,7 +42,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'tapels') ? "active bg-gradient-success" : "" }}"
-                    href="/tapels">
+                    href="/humas/tapel">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -51,7 +51,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'dudis') ? "active bg-gradient-success" : "" }}"
-                    href="/dudis">
+                    href="/humas/dudi">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -60,7 +60,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'gurus') ? "active bg-gradient-success" : "" }}"
-                    href="/gurus">
+                    href="/humas/guru">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -69,7 +69,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'humas') ? "active bg-gradient-success" : "" }}"
-                    href="/humas">
+                    href="/humas/datahumas">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -78,7 +78,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'siswas') ? "active bg-gradient-success" : "" }}"
-                    href="/siswas">
+                    href="/humas/siswa">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -87,7 +87,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'kelassiswas') ? "active bg-gradient-success" : "" }}"
-                    href="/kelassiswas">
+                    href="/humas/kelassiswa">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
@@ -96,7 +96,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ (Request::segment(1) == 'siswapkls') ? "active bg-gradient-success" : "" }}"
-                    href="/siswapkls">
+                    href="/humas/siswapkl">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>

@@ -10,16 +10,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-valide" action="/humas" method="post">
+                <form class="form-valide" action="/humas/jurusan" method="post">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
-                        <label class="form-label">NIP</label>
-                        <input type="number" class="form-control" name="nip" id="exampleFormControlInput1" required>
-                    </div>
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Nama Humas</label>
-                        <input type="text" class="form-control" name="nama_humas" id="exampleFormControlInput1"
+                        <label class="form-label">Nama Jurusan</label>
+                        <input type="text" class="form-control" name="nama_jurusan" id="exampleFormControlInput1"
                             required>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>

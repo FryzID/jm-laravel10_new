@@ -10,12 +10,16 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-valide" action="/tapels" method="post">
+                <form class="form-valide" action="/humas/guru" method="post">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Tahun Pelajaran</label>
-                        <input type="number" class="form-control" name="tapel" id="exampleFormControlInput1" required>
+                        <label class="form-label">NIP</label>
+                        <input type="number" class="form-control" name="nip" id="exampleFormControlInput1" required>
+                    </div>
+                    <div class="input-group input-group-outline my-3">
+                        <label class="form-label">Nama Guru</label>
+                        <input type="text" class="form-control" name="nama_guru" id="exampleFormControlInput1" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
@@ -23,5 +27,4 @@
             </form>
         </div>
     </div>
-</div>
 </div>

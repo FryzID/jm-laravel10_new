@@ -18,28 +18,32 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Jurusan</th>
-                                <th scope="col">Level Kelas</th>
-                                <th scope="col">Nama Kelas</th>
+                                <th scope="col">Kelas Siswa</th>
+                                <th scope="col">Nama Siswa</th>
+                                <th scope="col">Tahun Pelajaran</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $kelas as $kls )
+                            @foreach( $kelassiswas as $kelassiswa )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $kls->jurusan->nama_jurusan }}</td>
-                                <td>{{ $kls->level_kelas }}</td>
-                                <td>{{ $kls->nama_kelas }}</td>
+                                <td>{{ $kelassiswa->kelas->level_kelas . ' ' . $kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $kelassiswa->kelas->nama_kelas }}
+                                </td>
+                                <td>{{ $kelassiswa->siswa->nama_siswa }}</td>
+                                <td>{{ $kelassiswa->tapel->tapel }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal" data-target="#form-detail{{ $kls->kelas_id }}"><i
+                                            data-toggle="modal"
+                                            data-target="#form-detail{{ $kelassiswa->kelassiswa_id }}"><i
                                                 class="fa fa-eye"></i></a>
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $kls->kelas_id }}"><i
+                                            data-toggle="modal"
+                                            data-target="#form-edit{{ $kelassiswa->kelassiswa_id }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="/kelas/{{ $kls->kelas_id }}" method="post" class="d-inline">
+                                        <form action="/humas/kelassiswa/{{ $kelassiswa->kelassiswa_id }}" method="post"
+                                            class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"
@@ -59,8 +63,8 @@
 </div>
 
 <!-- MODAL -->
-@include('kelas.create')
-{{-- @include('kelas.edit')
-@include('kelas.detail') --}}
+@include('Humas.kelassiswas.create')
+{{-- @include('kelassiswas.edit')
+@include('kelassiswas.detail') --}}
 
 @endsection

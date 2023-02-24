@@ -10,7 +10,7 @@
                         data-bs-target="#form-create">
                         <i class="fa fa-plus"></i>
                     </button>
-                    <a type="button" class="btn btn-success mb-2" href="/dudis-export">
+                    <a type="button" class="btn btn-success mb-2" href="/humas/dudi-export">
                     <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
                                             data-toggle="modal" data-target="#form-edit{{ $dudi->kode_dudi }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="/dudis/{{ $dudi->dudi_id }}" method="post" class="d-inline">
+                                        <form action="/humas/dudi/{{ $dudi->dudi_id }}" method="post" class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"
@@ -68,8 +68,8 @@
 </div>
 
 <!-- MODAL -->
-@include('dudis.create')
-@include('dudis.edit')
-@include('dudis.detail')
+@include('Humas.dudis.create')
+@include('Humas.dudis.edit')
+@include('Humas.dudis.detail')
 
 @endsection

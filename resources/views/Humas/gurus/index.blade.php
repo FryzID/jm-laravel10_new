@@ -19,25 +19,26 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Jurusan</th>
+                                <th scope="col">NIP</th>
+                                <th scope="col">Nama Guru</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach( $jurusans as $jurusan )
+                        <tbody id="tbody">
+                            @foreach( $gurus as $guru )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $jurusan->nama_jurusan }}</td>
+                                <td>{{ $guru->nip }}</td>
+                                <td>{{ $guru->nama_guru }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal" data-target="#form-detail{{ $jurusan->jurusan_id }}"><i
+                                            data-toggle="modal" data-target="#form-detail{{ $guru->guru_id }}"><i
                                                 class="fa fa-eye"></i></a>
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $jurusan->jurusan_id }}"><i
+                                            data-toggle="modal" data-target="#form-edit{{ $guru->guru_id }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="/jurusan/{{ $jurusan->jurusan_id }}" method="post"
-                                            class="d-inline">
+                                        <form action="/humas/guru/{{ $guru->guru_id }}" method="post" class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"
@@ -57,8 +58,8 @@
 </div>
 
 <!-- MODAL -->
-@include('jurusans.create')
-{{-- @include('jurusans.edit')
-@include('jurusans.detail') --}}
+@include('Humas.gurus.create')
+{{-- @include('gurus.edit')
+@include('gurus.detail') --}}
 
 @endsection

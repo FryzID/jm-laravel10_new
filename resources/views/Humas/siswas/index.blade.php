@@ -18,32 +18,26 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Kelas Siswa</th>
+                                <th scope="col">NIS</th>
                                 <th scope="col">Nama Siswa</th>
-                                <th scope="col">Tahun Pelajaran</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $kelassiswas as $kelassiswa )
+                            @foreach( $siswas as $siswa )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $kelassiswa->kelas->level_kelas . ' ' . $kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $kelassiswa->kelas->nama_kelas }}
-                                </td>
-                                <td>{{ $kelassiswa->siswa->nama_siswa }}</td>
-                                <td>{{ $kelassiswa->tapel->tapel }}</td>
+                                <td>{{ $siswa->nis }}</td>
+                                <td>{{ $siswa->nama_siswa }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal"
-                                            data-target="#form-detail{{ $kelassiswa->kelassiswa_id }}"><i
+                                            data-toggle="modal" data-target="#form-detail{{ $siswa->siswa_id }}"><i
                                                 class="fa fa-eye"></i></a>
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal"
-                                            data-target="#form-edit{{ $kelassiswa->kelassiswa_id }}"><i
+                                            data-toggle="modal" data-target="#form-edit{{ $siswa->siswa_id }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="/kelassiswas/{{ $kelassiswa->kelassiswa_id }}" method="post"
-                                            class="d-inline">
+                                        <form action="humas/siswa/{{ $siswa->siswa_id }}" method="post" class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"
@@ -63,8 +57,8 @@
 </div>
 
 <!-- MODAL -->
-@include('kelassiswas.create')
-{{-- @include('kelassiswas.edit')
-@include('kelassiswas.detail') --}}
+@include('Humas.siswas.create')
+{{-- @include('siswas.edit')
+@include('siswas.detail') --}}
 
 @endsection

@@ -15,7 +15,7 @@ class GuruController extends Controller
     public function index()
     {
         $gurus = Guru::orderBy('guru_id', 'desc')->get();
-        return view('gurus.index', compact('gurus'), [
+        return view('Humas.gurus.index', compact('gurus'), [
             'title' => 'Guru'
         ]);
     }
@@ -38,16 +38,21 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        Guru::create([
-            'nip' => $request->nip, 'required|max:225|unique:gurus,nip',
-            'nama_guru' => $request->nama_guru, 'required|max:225',
-            'username' => $request->nama_guru, 'required|max:225',
-            'password' => bcrypt($request->nip),'required|max:225',
-        ]);
-        
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        // kembalikan ke halaman post
-        return redirect('/gurus');
+        $check =Guru::where('nip', '=', $request->nip)->first();
+        if ($check == null) {
+            Guru::create([
+                'nip' => $request->nip, 'required|max:225|unique:gurus,nip',
+                'nama_guru' => $request->nama_guru, 'required|max:225',
+                'username' => $request->nama_guru, 'required|max:225',
+                'password' => bcrypt($request->nip),'required|max:225',
+            ]);
+            
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            // kembalikan ke halaman post
+            return redirect('humas/guru');
+        } else {
+            return redirect('humas/guru')->with('warning', 'NIP Sudah Ada');
+        }
     }
 
     /**
@@ -93,6 +98,6 @@ class GuruController extends Controller
     public function destroy($id)
     {
         Guru::find($id)->delete();
-        return redirect('gurus')->with('success', 'Selamat Data Telah Dihapus!!');
+        return redirect('/humas/guru')->with('success', 'Selamat Data Telah Dihapus!!');
     }
 }

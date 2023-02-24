@@ -18,7 +18,7 @@ class SiswaPklController extends Controller
     public function index()
     {
         $siswapkls = SiswaPkl::latest()->get();
-        return view('siswapkls.index', compact('siswapkls'), [
+        return view('Humas.siswapkls.index', compact('siswapkls'), [
             'title' => "Siswa PKL",
             'dudis' => Dudi::all(),
             'kelassiswas' => KelasSiswa::all(),
@@ -54,7 +54,7 @@ class SiswaPklController extends Controller
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
-        return redirect('siswapkls');
+        return redirect('/humas/siswapkl');
     }
 
     /**

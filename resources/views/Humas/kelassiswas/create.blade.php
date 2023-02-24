@@ -10,33 +10,35 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-valide" action="/kelas" method="post">
+                <form class="form-valide" action="/humas/kelassiswa" method="post">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
-                        <!-- <label class="form-label">Jurusan</label> -->
-                        <select class="form-control " id="exampleFormControlInput1" name="jurusan_id" required>
-                            <option value="">Pilih Jurusan</option>
-                            @foreach( $jurusan as $jurusans)
-                            <option value="{{ $jurusans->jurusan_id }}">{{ $jurusans->nama_jurusan }}</option>
+                        <!-- <label class="form-label">Kelas</label> -->
+                        <select class="form-control " id="exampleFormControlInput1" name="kelas_id" required>
+                            <option value="">Pilih Kelas</option>
+                            @foreach( $kelas as $kls)
+                            <option value="{{ $kls->kelas_id }}">
+                                {{ $kls->level_kelas . " " . $kls->jurusan->nama_jurusan . " " . $kls->nama_kelas }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="input-group input-group-outline my-3">
-                        <!-- <label class="form-label">Level Kelas</label> -->
-                        <select class="form-control " id="exampleFormControlInput1" name="level_kelas" required>
-                            <option value="">Pilih Level Kelas</option>
-                            @foreach( $level_kelas as $lvkls)
-                            <option value="{{ $lvkls }}">{{ $lvkls }}</option>
+                        <!-- <label class="form-label">Siswa</label> -->
+                        <select class="form-control " id="exampleFormControlInput1" name="siswa_id" required>
+                            <option value="">Pilih Siswa</option>
+                            @foreach( $siswas as $siswa)
+                            <option value="{{ $siswa->siswa_id }}">{{ $siswa->nama_siswa }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="input-group input-group-outline my-3">
-                        <!-- <label class="form-label">Nama Kelas</label> -->
-                        <select class="form-control " id="exampleFormControlInput1" name="nama_kelas" required>
-                            <option value="">Pilih Nama Kelas</option>
-                            @foreach( $nama_kelas as $nmkls)
-                            <option value="{{ $nmkls }}">{{ $nmkls }}</option>
+                        <!-- <label class="form-label">Tapel</label> -->
+                        <select class="form-control " id="exampleFormControlInput1" name="tapel_id" required>
+                            <option value="">Pilih Tapel</option>
+                            @foreach( $tapels as $tapel)
+                            <option value="{{ $tapel->tapel_id }}">{{ $tapel->tapel }}</option>
                             @endforeach
                         </select>
                     </div>

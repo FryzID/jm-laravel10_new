@@ -10,20 +10,12 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-valide" action="/siswas" method="post">
+                <form class="form-valide" action="/humas/tapel" method="post">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
-                        <label class="form-label">NIS</label>
-                        <input type="number" class="form-control" name="nis" id="exampleFormControlInput1" required>
-                        @error('nis')
-                        {{ $message }}
-                        @enderror
-                    </div>
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Nama Siswa</label>
-                        <input type="text" class="form-control" name="nama_siswa" id="exampleFormControlInput1"
-                            required>
+                        <label class="form-label">Tahun Pelajaran</label>
+                        <input type="number" class="form-control" name="tapel" id="exampleFormControlInput1" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>

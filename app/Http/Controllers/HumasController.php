@@ -15,7 +15,7 @@ class HumasController extends Controller
     public function index()
     {
         $humas = Humas::latest()->get();
-        return view('humas.index', compact('humas'), [
+        return view('Humas.humas.index', compact('humas'), [
             'title' => 'Humas'
         ]);
     }
@@ -38,15 +38,20 @@ class HumasController extends Controller
      */
     public function store(Request $request)
     {
-        Humas::create([
-            'nip' => $request->nip, 'required|max:225|unique:humas,nip',
-            'nama_humas' => $request->nama_humas, 'required|max:225',
-            'username' => $request->nama_humas, 'required|max:225',
-            'password' => bcrypt($request->nip),'required|max:225',
-        ]);
+        $check = Humas::where('nip', '=', $request->nip)->first();
+        if ($check == null) {
+            Humas::create([
+                'nip' => $request->nip, 'required|max:225|unique:humas,nip',
+                'nama_humas' => $request->nama_humas, 'required|max:225',
+                'username' => $request->nama_humas, 'required|max:225',
+                'password' => bcrypt($request->nip),'required|max:225',
+            ]);
 
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('humas');
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            return redirect('/humas/datahumas');
+        } else {
+            return redirect('/humas/datahumas')->with('warning', 'NIP Sudah Ada');
+        }
     }
 
     /**
@@ -92,6 +97,6 @@ class HumasController extends Controller
     public function destroy($id)
     {
         Humas::find($id)->delete();
-        return redirect('humas')->with('success', 'Selamat Data Telah Dihapus!!');
+        return redirect('/humas/datahumas')->with('success', 'Selamat Data Telah Dihapus!!');
     }
 }

@@ -15,7 +15,7 @@ class TapelController extends Controller
     public function index()
     {
         $tapels = Tapel::all();
-        return view('tapels.index', compact('tapels'), [
+        return view('Humas.tapels.index', compact('tapels'), [
             'title' => "Tahun Pelajaran",
         ]);
     }
@@ -45,7 +45,7 @@ class TapelController extends Controller
         Tapel::create($tapels);
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('tapels');
+        return redirect('/humas/tapel');
     }
 
     /**

@@ -19,37 +19,26 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Siswa PKL</th>
-                                <th scope="col">Tanggal</th>
-                                <th scope="col">Absen Masuk</th>
-                                <th scope="col">Absen Keluar</th>
-                                <th scope="col">Keterangan</th>
-                                <th scope="col">Kegiatan</th>
-                                <th scope="col">Konfirmasi Dudi</th>
+                                <th scope="col">NIP</th>
+                                <th scope="col">Nama Humas</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
-                        <tbody id="tbody">
-                            @foreach( $jurnals as $jurnal )
+                        <tbody>
+                            @foreach( $humas as $hum )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $jurnal->siswapkl->kelassiswa->kelas->level_kelas . ' ' . $jurnal->siswapkl->kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $jurnal->siswapkl->kelassiswa->kelas->nama_kelas . ' ' . $jurnal->siswapkl->kelassiswa->siswa->nama_siswa . ' ' . $jurnal->siswapkl->kelassiswa->tapel->tapel }}
-                                </td>
-                                <td>{{ $jurnal->tanggal }}</td>
-                                <td>{{ $jurnal->absen_masuk }}</td>
-                                <td>{{ $jurnal->absen_keluar }}</td>
-                                <td>{{ $jurnal->keterangan }}</td>
-                                <td>{{ $jurnal->kegiatan }}</td>
-                                <td>{{ $jurnal->konfirmasi_dudi }}</td>
+                                <td>{{ $hum->nip }}</td>
+                                <td>{{ $hum->nama_humas }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal" data-target="#form-detail{{ $jurnal->jurnal_id }}"><i
+                                            data-toggle="modal" data-target="#form-detail{{ $hum->humas_id }}"><i
                                                 class="fa fa-eye"></i></a>
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $jurnal->jurnal_id }}"><i
+                                            data-toggle="modal" data-target="#form-edit{{ $hum->humas_id }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="/jurnal/{{ $jurnal->jurnal_id }}" method="post" class="d-inline">
+                                        <form action="humas/datahumas/{{ $hum->humas_id }}" method="post" class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"
@@ -69,8 +58,8 @@
 </div>
 
 <!-- MODAL -->
-@include('jurnals.create')
-{{-- @include('jurnals.edit')
-@include('jurnals.detail') --}}
+@include('Humas.humas.create')
+{{-- @include('humas.edit')
+@include('humas.detail') --}}
 
 @endsection

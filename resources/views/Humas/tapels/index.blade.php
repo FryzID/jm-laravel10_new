@@ -14,31 +14,28 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%"
-                        cellspacing="0">
+                    <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">NIP</th>
-                                <th scope="col">Nama Humas</th>
+                                <th scope="col">Tahun Pelajaran</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $humas as $hum )
+                            @foreach( $tapels as $tapel )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $hum->nip }}</td>
-                                <td>{{ $hum->nama_humas }}</td>
+                                <td>{{ $tapel->tapel }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal" data-target="#form-detail{{ $hum->humas_id }}"><i
+                                            data-toggle="modal" data-target="#form-detail{{ $tapel->tapel }}"><i
                                                 class="fa fa-eye"></i></a>
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $hum->humas_id }}"><i
+                                            data-toggle="modal" data-target="#form-edit{{ $tapel->tapel }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="/humas/{{ $hum->humas_id }}" method="post" class="d-inline">
+                                        <form action="humas/tapel/{{ $tapel->tapel }}" method="post" class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"
@@ -58,8 +55,8 @@
 </div>
 
 <!-- MODAL -->
-@include('humas.create')
-{{-- @include('humas.edit')
-@include('humas.detail') --}}
+@include('Humas.tapels.create')
+{{-- @include('tapels.edit') --}}
+{{-- @include('tapels.detail') --}}
 
 @endsection

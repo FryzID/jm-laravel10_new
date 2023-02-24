@@ -15,7 +15,7 @@ class JurusanController extends Controller
     public function index()
     {
         $jurusans = Jurusan::all();
-        return view('jurusans.index', compact('jurusans'), [
+        return view('Humas.jurusans.index', compact('jurusans'), [
             'title' => "Jurusan",
         ]);
     }
@@ -45,7 +45,7 @@ class JurusanController extends Controller
         Jurusan::create($jurusan);
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('jurusans');
+        return redirect('/humas/jurusan');
     }
 
     /**

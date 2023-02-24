@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form-valide" action="/siswapkls" method="post">
+                <form class="form-valide" action="/humas/siswapkl" method="post">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">

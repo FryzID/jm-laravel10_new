@@ -15,7 +15,7 @@ class JurnalController extends Controller
      */
     public function index()
     {
-        return view('jurnals.index', [
+        return view('Humas.jurnals.index', [
             'title' => "Transaksi Jurnal",
             'jurnals' => Jurnal::latest()->get(),
             'siswapkls' => SiswaPkl::all(),
@@ -54,7 +54,7 @@ class JurnalController extends Controller
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
-        return redirect('jurnals');
+        return redirect('/humas/jurnal');
     }
 
     /**

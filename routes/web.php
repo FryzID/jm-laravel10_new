@@ -24,19 +24,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Login');
 });
 
-Route::resource('dudis', DudiController::class);
-Route::resource('jurusans', JurusanController::class);
-Route::resource('tapels', TapelController::class);
-Route::resource('kelas', KelasController::class);
-Route::resource('siswas', SiswaController::class);
-Route::resource('gurus', GuruController::class);
-Route::resource('kelassiswas', KelasSiswaController::class);
-Route::resource('siswapkls', SiswaPklController::class);
-Route::resource('humas', HumasController::class);
-Route::resource('jurnals', JurnalController::class);
+Route::resource('humas/dudi', DudiController::class);
+Route::resource('humas/jurusan', JurusanController::class);
+Route::resource('humas/tapel', TapelController::class);
+Route::resource('humas/kelas', KelasController::class);
+Route::resource('humas/siswa', SiswaController::class);
+Route::resource('humas/guru', GuruController::class);
+Route::resource('humas/kelassiswa', KelasSiswaController::class);
+Route::resource('humas/siswapkl', SiswaPklController::class);
+Route::resource('humas/datahumas', HumasController::class);
+Route::resource('humas/jurnal', JurnalController::class);
 
-Route::get('/dudis-export',[DudiController::class,'dudiexport'])->name('export-dudi');
+Route::get('humas/dudi-export',[DudiController::class,'dudiexport'])->name('export-dudi');
 

@@ -15,7 +15,7 @@ class SiswaController extends Controller
     public function index()
     {
         $siswas = Siswa::all();
-        return view('siswas.index', compact('siswas'), [
+        return view('Humas.siswas.index', compact('siswas'), [
             'title' => 'Siswa',
         ]);
     }
@@ -38,15 +38,20 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        Siswa::create([
-            'nis' => $request->nis, 'required|max:225|unique:siswas,nis',
-            'nama_siswa' => $request->nama_siswa, 'required|max:225',
-            'username' => $request->nama_siswa, 'required|max:225',
-            'password' => bcrypt($request->nis),'required|max:225',
-        ]);
+        $check = Siswa::where('nis', '=', $request->nis)->first();
+        if ($check) {
+            Siswa::create([
+                'nis' => $request->nis, 'required|max:225|unique:siswas,nis',
+                'nama_siswa' => $request->nama_siswa, 'required|max:225',
+                'username' => $request->nama_siswa, 'required|max:225',
+                'password' => bcrypt($request->nis),'required|max:225',
+            ]);
 
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('siswas');
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            return redirect('/humas/siswa');
+        } else {
+            return redirect('/humas/siswa')->with('warning', 'NIS Sudah Ada');
+        }
     }
 
     /**

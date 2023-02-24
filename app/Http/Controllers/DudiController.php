@@ -17,7 +17,7 @@ class DudiController extends Controller
      */
     public function index()
     {
-        return view('dudis.index', [
+        return view('Humas.dudis.index', [
             'title' => "Data Dudi",
             'dudis' => Dudi::latest()->get(),
             'jurusan' => Jurusan::all(),
@@ -42,20 +42,24 @@ class DudiController extends Controller
      */
     public function store(Request $request)
     {
-        Dudi::create([
-            'kode_dudi' => $request->kode_dudi, 'required|max:255|unique:dudis,kode_dudi',
-            'nama_dudi' => $request->nama_dudi,  'required|max:255',
-            'username' => $request->nama_dudi, 'required|max:255',
-            'password' => bcrypt($request->kode_dudi), 'required|max:255',
-            'alamat' => $request->alamat, 'required|max:255',
-            'telepon' => $request->telepon, 'required|max:255',
-            'jurusan_id' => $request->jurusan_id, 'required|max:255',
-        ]);
+        $check = Dudi::where('kode_dudi', '=', $request->kode_dudi)->first();
+        if($check == null) {
+            Dudi::create([
+                'kode_dudi' => $request->kode_dudi, 'required|max:255|unique:dudis,kode_dudi',
+                'nama_dudi' => $request->nama_dudi,  'required|max:255',
+                'username' => $request->nama_dudi, 'required|max:255',
+                'password' => bcrypt($request->kode_dudi), 'required|max:255',
+                'alamat' => $request->alamat, 'required|max:255',
+                'telepon' => $request->telepon, 'required|max:255',
+                'jurusan_id' => $request->jurusan_id, 'required|max:255',
+            ]);
 
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        // kembalikan ke halaman post
-        return redirect('/dudis');
-
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            // kembalikan ke halaman post
+            return redirect('/humas/dudi');
+        } else {
+            return redirect('/humas/dudi')->with('warning', 'Kode Dudi Sudah Ada');
+        }
     }
 
     /**
@@ -112,7 +116,7 @@ class DudiController extends Controller
     public function destroy($id)
     {
         Dudi::find($id)->delete();
-        return redirect('dudis')->with('success', 'Selamat Data Telah Dihapus!!');
+        return redirect('/humas/dudi')->with('success', 'Selamat Data Telah Dihapus!!');
     }
 
     public function dudiexport(){

@@ -18,7 +18,7 @@ class KelasSiswaController extends Controller
     public function index()
     {
         $kelassiswas = KelasSiswa::latest()->get();
-        return view('kelassiswas.index', compact('kelassiswas'), [
+        return view('Humas.kelassiswas.index', compact('kelassiswas'), [
             'title' => "Kelas Siswa",
             'kelas' => Kelas::all(),
             'siswas' => Siswa::all(),
@@ -54,7 +54,7 @@ class KelasSiswaController extends Controller
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
-        return redirect('kelassiswas');
+        return redirect('/humas/kelassiswa');
 
     }
 
