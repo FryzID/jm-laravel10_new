@@ -18,25 +18,11 @@ class SiswaSeeder extends Seeder
     public function run()
     {
         Siswa::create([
-            'nis' => '111',
-            'username' => 'Siswa1',
-            'nama_siswa' => 'super@gmail.com',
+            'nis' => '123',
+            'username' => 'siswa',
+            'nama_siswa' => 'siswa',
             'level' => 'Siswa',
             'password' => Hash::make('123'),
-        ]);
-        Siswa::create([
-            'nis' => '112',
-            'username' => 'Siswa2',
-            'nama_siswa' => 'admin1@gmail.com',
-            'level' => 'Siswa',
-            'password' => Hash::make('123'),
-        ]);
-        Siswa::create([
-            'nis' => '113',
-            'username' => 'Siswa3',
-            'nama_siswa' => 'admin2@gmail.com',
-            'level' => 'Siswa',
-            'password' => Hash::make('123')
         ]);
     }
 }

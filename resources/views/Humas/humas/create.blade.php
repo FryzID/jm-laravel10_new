@@ -22,6 +22,10 @@
                         <input type="text" class="form-control" name="nama_humas" id="exampleFormControlInput1"
                             required>
                     </div>
+                    <div class="input-group input-group-outline my-3">
+                        <input type="text" class="form-control" value="Humas" name="level" id="exampleFormControlInput1"
+                            required readonly>
+                    </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
             </div>

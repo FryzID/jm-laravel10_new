@@ -1,7 +1,7 @@
 <!-- Extra large modal -->
-@foreach( $dudis as $dudi )
-<div class="modal fade bd-example-modal-md" id="form-edit{{ $dudi->id }}" tabindex="-1" role="dialog"
-    aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="form-edit{{ $dudi->id }}" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,7 +11,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/dudi/{{ $dudi->kode_dudi }}" method="POST">
+                <form action="/humas/dudi/{{ $dudi->dudi_id }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
@@ -48,4 +48,4 @@
         </div>
     </div>
 </div>
-@endforeach
+

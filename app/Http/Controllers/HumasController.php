@@ -45,6 +45,7 @@ class HumasController extends Controller
                 'nama_humas' => $request->nama_humas, 'required|max:225',
                 'username' => $request->nama_humas, 'required|max:225',
                 'password' => bcrypt($request->nip),'required|max:225',
+                'level' => $request->level, 'required|max:255',
             ]);
 
             $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');

@@ -18,25 +18,11 @@ class GuruSeeder extends Seeder
     public function run()
     {
         Guru::create([
-            'nip' => '111',
-            'username' => 'guru1',
-            'nama_guru' => 'super@gmail.com',
+            'nip' => '123',
+            'username' => 'guru',
+            'nama_guru' => 'guru',
             'level' => 'Guru',
             'password' => Hash::make('123'),
-        ]);
-        Guru::create([
-            'nip' => '112',
-            'username' => 'guru2',
-            'nama_guru' => 'admin1@gmail.com',
-            'level' => 'Guru',
-            'password' => Hash::make('123'),
-        ]);
-        Guru::create([
-            'nip' => '113',
-            'username' => 'guru3',
-            'nama_guru' => 'admin2@gmail.com',
-            'level' => 'Guru',
-            'password' => Hash::make('123')
         ]);
     }
 }

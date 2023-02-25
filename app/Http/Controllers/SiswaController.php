@@ -14,7 +14,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $siswas = Siswa::all();
+        $siswas = Siswa::latest()->get();
         return view('Humas.siswas.index', compact('siswas'), [
             'title' => 'Siswa',
         ]);
@@ -39,12 +39,13 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $check = Siswa::where('nis', '=', $request->nis)->first();
-        if ($check) {
+        if ($check == null) {
             Siswa::create([
                 'nis' => $request->nis, 'required|max:225|unique:siswas,nis',
                 'nama_siswa' => $request->nama_siswa, 'required|max:225',
                 'username' => $request->nama_siswa, 'required|max:225',
                 'password' => bcrypt($request->nis),'required|max:225',
+                'level' => $request->level, 'required|max:255',
             ]);
 
             $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');

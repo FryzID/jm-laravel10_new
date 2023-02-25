@@ -38,13 +38,14 @@ class GuruController extends Controller
      */
     public function store(Request $request)
     {
-        $check =Guru::where('nip', '=', $request->nip)->first();
+        $check = Guru::where('nip', '=', $request->nip)->first();
         if ($check == null) {
             Guru::create([
                 'nip' => $request->nip, 'required|max:225|unique:gurus,nip',
                 'nama_guru' => $request->nama_guru, 'required|max:225',
                 'username' => $request->nama_guru, 'required|max:225',
                 'password' => bcrypt($request->nip),'required|max:225',
+                'level' => $request->level, 'required|max:255',
             ]);
             
             $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');

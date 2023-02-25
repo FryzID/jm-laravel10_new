@@ -51,6 +51,7 @@ class DudiController extends Controller
                 'password' => bcrypt($request->kode_dudi), 'required|max:255',
                 'alamat' => $request->alamat, 'required|max:255',
                 'telepon' => $request->telepon, 'required|max:255',
+                'level' => $request->level, 'required|max:255',
                 'jurusan_id' => $request->jurusan_id, 'required|max:255',
             ]);
 
@@ -83,7 +84,7 @@ class DudiController extends Controller
     {
         // $info = Info::where('id', $id)->first();
         $dudi = Dudi::find($id);
-        return view('dudis.edit', ['dudi' => $dudi]);
+        return view('dudis.edit', ['dudis' => $dudi]);
     }
 
     /**
@@ -93,18 +94,40 @@ class DudiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, dudi $dudi)
     {
-        Dudi::find($id)->update([
-            'kode_dudi' => $request->kode_dudi,
-            'nama_dudi' => $request->nama_dudi,
-            'username' => $request->username,
-            'password' => $request->password,
-            'alamat' => $request->alamat,
-            'telepon' => $request->telepon,
-            'jurusan_id' => $request->jurusan_id,
-        ]);
-        return redirect('dudis');
+        $rules = [
+            'kode_dudi' => 'required|max:255',
+            'nama_dudi' => 'required|max:255',
+            'username' => 'required|max:255',
+            'password' => 'required|max:255',
+            'alamat' => 'required|max:255',
+            'telepon' => 'required|max:255',
+            'level' => 'required|max:255',
+            'jurusan_id' => 'required|max:255',
+        ];
+
+        $vali = $request->validate($rules);
+        
+        // search laravel = update | insert
+        Dudi::where('id', $dudi->id)
+                ->update($vali);
+
+
+        // kembalikan ke halaman post
+        return redirect('/humas/dudi')->with('success', 'Selamat Data Telah Di Update!!');
+
+
+        // Dudi::find($id)->update([
+        //     'kode_dudi' => $request->kode_dudi,
+        //     'nama_dudi' => $request->nama_dudi,
+        //     'username' => $request->username,
+        //     'password' => $request->password,
+        //     'alamat' => $request->alamat,
+        //     'telepon' => $request->telepon,
+        //     'jurusan_id' => $request->jurusan_id,
+        // ]);
+        // return redirect('dudis');
     }
 
     /**

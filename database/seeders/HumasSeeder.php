@@ -18,25 +18,11 @@ class HumasSeeder extends Seeder
     public function run()
     {
         Humas::create([
-            'nip' => '111',
-            'username' => 'Humas1',
-            'nama_humas' => 'super@gmail.com',
+            'nip' => '123',
+            'username' => 'humas',
+            'nama_humas' => 'humas',
             'level' => 'Humas',
             'password' => Hash::make('123'),
-        ]);
-        Humas::create([
-            'nip' => '112',
-            'username' => 'Humas2',
-            'nama_humas' => 'admin1@gmail.com',
-            'level' => 'Humas',
-            'password' => Hash::make('123'),
-        ]);
-        Humas::create([
-            'nip' => '113',
-            'username' => 'Humas3',
-            'nama_humas' => 'admin2@gmail.com',
-            'level' => 'Humas',
-            'password' => Hash::make('123')
         ]);
     }
 }

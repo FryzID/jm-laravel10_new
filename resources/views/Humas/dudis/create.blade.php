@@ -31,6 +31,10 @@
                         <input type="number" class="form-control" name="telepon" id="exampleFormControlInput1" required>
                     </div>
                     <div class="input-group input-group-outline my-3">
+                        <input type="text" class="form-control" value="Dudi" name="level" id="exampleFormControlInput1"
+                            required readonly>
+                    </div>
+                    <div class="input-group input-group-outline my-3">
                         <select class="form-control " id="exampleFormControlInput1" name="jurusan_id" required>
                             <option value="">Pilih Jurusan</option>
                             @foreach( $jurusan as $jurusans)
@@ -40,8 +44,8 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
+                </form>
             </div>
-            </form>
         </div>
     </div>
 </div>
