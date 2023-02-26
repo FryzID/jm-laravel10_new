@@ -39,9 +39,9 @@
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
                                             data-toggle="modal" data-target="#form-detail{{ $guru->guru_id }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $guru->guru_id }}"><i
-                                                class="fa fa-pen"></i></a>
+                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
+                                            data-bs-target="#form-edit{{ $guru->guru_id }}"><i
+                                                class="fa fa-pen"></i></button>
                                         <form action="/humas/guru/{{ $guru->guru_id }}" method="post" class="d-inline">
                                             @method('DELETE')
                                             @csrf

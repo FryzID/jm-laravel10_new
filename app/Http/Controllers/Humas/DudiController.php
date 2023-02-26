@@ -95,40 +95,30 @@ class DudiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, dudi $dudi)
+    public function update(Request $request, Dudi $dudi)
     {
-        $rules = [
-            'kode_dudi' => 'required|max:255',
-            'nama_dudi' => 'required|max:255',
-            'username' => 'required|max:255',
-            'password' => 'required|max:255',
-            'alamat' => 'required|max:255',
-            'telepon' => 'required|max:255',
-            'level' => 'required|max:255',
-            'jurusan_id' => 'required|max:255',
-        ];
+        $request->validate([
+            'kode_dudi' => 'required',
+            'nama_dudi' => 'required',
+            'username' => 'required',
+            'password' => 'required',
+            'alamat' => 'required',
+            'telepon' => 'required',
+            'level' => 'required',
+            'jurusan_id' => 'required',
+        ]);
 
-        $vali = $request->validate($rules);
-        
-        // search laravel = update | insert
-        Dudi::where('id', $dudi->id)
-                ->update($vali);
-
-
-        // kembalikan ke halaman post
+        $dudi->kode_dudi = $request->kode_dudi;
+        $dudi->nama_dudi = $request->nama_dudi;
+        $dudi->username = $request->nama_dudi;
+        $dudi->alamat = $request->alamat;
+        $dudi->telepon = $request->telepon;
+        $dudi->level = $request->level;
+        $dudi->jurusan_id = $request->jurusan_id;
+        if ($request->password)
+            $user->password = Hash::make($request->kode_dudi);
+        $dudi->save();
         return redirect('/humas/dudi')->with('success', 'Selamat Data Telah Di Update!!');
-
-
-        // Dudi::find($id)->update([
-        //     'kode_dudi' => $request->kode_dudi,
-        //     'nama_dudi' => $request->nama_dudi,
-        //     'username' => $request->username,
-        //     'password' => $request->password,
-        //     'alamat' => $request->alamat,
-        //     'telepon' => $request->telepon,
-        //     'jurusan_id' => $request->jurusan_id,
-        // ]);
-        // return redirect('dudis');
     }
 
     /**

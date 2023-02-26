@@ -47,8 +47,8 @@
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
                                             data-toggle="modal" data-target="#form-detail{{ $dudi->kode_dudi }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <button class="btn btn-circle btn-primary border-0 m-1" data-toggle="modal"
-                                            data-target="#form-edit{{ $dudi->dudi_id }}"><i
+                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
+                                            data-bs-target="#form-edit{{ $dudi->dudi_id }}"><i
                                                 class="fa fa-pen"></i></button>
                                         <form action="/humas/dudi/{{ $dudi->dudi_id }}" method="post" class="d-inline">
                                             @method('DELETE')
@@ -71,7 +71,7 @@
 
 <!-- MODAL -->
 @include('Humas.dudis.create')
-<!-- @include('Humas.dudis.edit')
-@include('Humas.dudis.detail') -->
+@include('Humas.dudis.edit')
+@include('Humas.dudis.detail')
 
 @endsection

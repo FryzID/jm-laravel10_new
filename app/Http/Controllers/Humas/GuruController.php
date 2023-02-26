@@ -17,9 +17,9 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $gurus = Guru::orderBy('guru_id', 'desc')->get();
-        return view('Humas.gurus.index', compact('gurus'), [
-            'title' => 'Guru'
+        return view('Humas.gurus.index', [
+            'title' => "Data Guru",
+            'gurus' => Guru::latest()->get(),
         ]);
     }
 
