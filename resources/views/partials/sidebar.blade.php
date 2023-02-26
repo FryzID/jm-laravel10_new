@@ -107,8 +107,29 @@
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
         <div class="mx-3">
-            <a href="/logout" class="btn bg-gradient-success mt-4 w-100" type="button">
+            <a href="#" class="btn bg-gradient-success mt-4 w-100" data-bs-toggle="modal" data-bs-target="#logoutModal"
+                type="button">
                 <i class="fas fa-sign-out-alt fixed-plugin-button-nav cursor-pointer"></i> Logout</a>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="exampleModalLabel">Apakah Anda Yakin Untuk Logout?</h4>
+                    <button type="button" class="btn-close text-dark" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">Pilih "Keluar" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
+                </div>
+            </div>
         </div>
     </div>
 </aside>

@@ -9,8 +9,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form class="form-valide" action="/humas/kelas" method="post">
+            <form class="form-valide" action="/humas/kelas" method="post">
+                <div class="modal-body">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
@@ -40,11 +40,12 @@
                             @endforeach
                         </select>
                     </div>
+                </div>
+                <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
-            </div>
+                </div>
             </form>
         </div>
     </div>
-</div>
 </div>

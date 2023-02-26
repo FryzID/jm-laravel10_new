@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Humas;
 use App\Http\Controllers\Controller;
 use App\Models\Humas;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\HumasExport;
 
 class HumasController extends Controller
 {
@@ -100,5 +102,8 @@ class HumasController extends Controller
     {
         Humas::find($id)->delete();
         return redirect('/humas/datahumas')->with('success', 'Selamat Data Telah Dihapus!!');
+    }
+    public function datahumasexport(){
+        return Excel::download(new HumasExport, 'Data-Humas.xlsx');
     }
 }

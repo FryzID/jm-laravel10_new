@@ -8,6 +8,8 @@ use App\Models\Guru;
 use App\Models\KelasSiswa;
 use App\Models\SiswaPkl;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SiswaPklExport;
 
 class SiswaPklController extends Controller
 {
@@ -101,5 +103,8 @@ class SiswaPklController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function siswapklexport(){
+        return Excel::download(new SiswaPklExport, 'Data-SiswaPkl.xlsx');
     }
 }

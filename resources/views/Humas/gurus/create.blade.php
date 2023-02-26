@@ -9,8 +9,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form class="form-valide" action="/humas/guru" method="post">
+            <form class="form-valide" action="/humas/guru" method="post">
+                <div class="modal-body">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
@@ -25,9 +25,11 @@
                         <input type="text" class="form-control" value="Guru" name="level" id="exampleFormControlInput1"
                             required readonly>
                     </div>
+                </div>
+                <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
-            </div>
+                </div>
             </form>
         </div>
     </div>

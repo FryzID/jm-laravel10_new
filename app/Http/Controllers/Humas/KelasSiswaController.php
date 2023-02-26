@@ -8,6 +8,8 @@ use App\Models\KelasSiswa;
 use App\Models\Siswa;
 use App\Models\Tapel;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KelasSiswaExport;
 
 class KelasSiswaController extends Controller
 {
@@ -102,5 +104,8 @@ class KelasSiswaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function kelassiswaexport(){
+        return Excel::download(new KelasSiswaExport, 'Data-KelasSiswa.xlsx');
     }
 }

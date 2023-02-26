@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Jurusan;
 use App\Models\Kelas;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\KelasExport;
 
 class KelasController extends Controller
 {
@@ -101,5 +103,8 @@ class KelasController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function kelasexport(){
+        return Excel::download(new KelasExport, 'Data-Kelas.xlsx');
     }
 }

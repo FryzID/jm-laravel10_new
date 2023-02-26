@@ -14,22 +14,16 @@
             </div>
             <ul class="navbar-nav  justify-content-end">
                 <li class="nav-item d-flex align-items-center">
-                    @guest
-                    <a href="/login" class="nav-link text-body font-weight-bold px-0">
-                        <i class="fa fa-user me-sm-1"></i>
-                        <span class="d-sm-inline d-none">Sign In</span>
-                    </a>
-                    @endguest
-                    @auth
-                    <form action="/logout" id="form-logout" method="post">
-                        @csrf
-                        <button type="submit" class="nav-link text-body font-weight-bold px-0 border-0"
-                            onclick="Submit(e)">
-                            <i class="fa fa-user me-sm-1"></i>
-                            <span class="d-sm-inline d-none">Logout</span>
-                        </button>
-                    </form>
-                    @endauth
+                    <i class="fa fa-user me-sm-1"></i>
+                    @if ( Str::length(Auth::guard('humas')->user()) > 0)
+                    <span class="d-sm-inline d-none">{{ Auth::guard('humas')->user()->nama_humas }}</span>
+                    @elseif ( Str::length(Auth::guard('dudi')->user()) > 0)
+                    <span class="d-sm-inline d-none">{{ Auth::guard('dudi')->user()->nama_dudi }}</span>
+                    @elseif ( Str::length(Auth::guard('guru')->user()) > 0)
+                    <span class="d-sm-inline d-none">{{ Auth::guard('guru')->user()->guru }}</span>
+                    @elseif ( Str::length(Auth::guard('siswa')->user()) > 0)
+                    <span class="d-sm-inline d-none">{{ Auth::guard('siswa')->user()->nama_siswa }}</span>
+                    @endif
                 </li>
                 <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                     <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -46,7 +40,7 @@
                     </a>
                 </li>
                 <li class="nav-item px-3 d-flex align-items-center">
-                    <a href="/logout" class="nav-link text-body p-0">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal" class="nav-link text-body p-0">
                         <i class="fas fa-sign-out-alt fixed-plugin-button-nav cursor-pointer"></i>
                         <span class="d-sm-inline d-none">Logout</span>
                     </a>

@@ -25,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::group(['middleware' =>  'guest'], function(){
     Route::get('/login',[LoginController::class,'login'])->name('login');
@@ -50,4 +53,13 @@ Route::group(['middleware' => ['auth:guru,humas,siswa,dudi', 'ceklevel:Guru,Sisw
     Route::resource('humas/jurnal', HumasJurnalController::class);
 
     Route::get('humas/dudi-export',[HumasDudiController::class,'dudiexport'])->name('export-dudi');
+    Route::get('humas/jurusan-export',[HumasJurusanController::class,'jurusanexport'])->name('export-jurusan');
+    Route::get('humas/tapel-export',[HumasTapelController::class,'tapelexport'])->name('export-tapel');
+    Route::get('humas/kelas-export',[HumasKelasController::class,'kelasexport'])->name('export-kelas');
+    Route::get('humas/siswa-export',[HumasSiswaController::class,'siswaexport'])->name('export-siswa');
+    Route::get('humas/guru-export',[HumasGuruController::class,'guruexport'])->name('export-guru');
+    Route::get('humas/kelassiswa-export',[HumasKelasSiswaController::class,'kelassiswaexport'])->name('export-kelassiswa');
+    Route::get('humas/siswapkl-export',[HumasSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');
+    Route::get('humas/datahumas-export',[HumasHumasController::class,'datahumasexport'])->name('export-datahumas');
+    Route::get('humas/jurnal-export',[HumasJurnalController::class,'jurnalexport'])->name('export-jurnal');
 });

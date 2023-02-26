@@ -13,8 +13,13 @@
                 </div>
             </div>
             <div class="card-body">
+                <a type="button" class="btn btn-success mb-4" href="/humas/siswa-import">
+                    <i class="fa fa-sign-in-alt"></i> Import Excel</a>
+                <a type="button" class="btn btn-success mb-4" href="/humas/siswa-export">
+                    <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 <div class="table-responsive">
-                    <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%"
+                        cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
@@ -37,7 +42,8 @@
                                         <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
                                             data-toggle="modal" data-target="#form-edit{{ $siswa->siswa_id }}"><i
                                                 class="fa fa-pen"></i></a>
-                                        <form action="humas/siswa/{{ $siswa->siswa_id }}" method="post" class="d-inline">
+                                        <form action="humas/siswa/{{ $siswa->siswa_id }}" method="post"
+                                            class="d-inline">
                                             @method('DELETE')
                                             @csrf
                                             <button class="btn btn-circle btn-danger border-0 m-1"

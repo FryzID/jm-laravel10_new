@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Humas;
 use App\Http\Controllers\Controller;
 use App\Models\Guru;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\GuruExport;
 
 class GuruController extends Controller
 {
@@ -101,5 +103,9 @@ class GuruController extends Controller
     {
         Guru::find($id)->delete();
         return redirect('/humas/guru')->with('success', 'Selamat Data Telah Dihapus!!');
+    }
+
+    public function guruexport(){
+        return Excel::download(new GuruExport, 'Data-Guru.xlsx');
     }
 }

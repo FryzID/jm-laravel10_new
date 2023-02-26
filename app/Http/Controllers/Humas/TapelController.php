@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Humas;
 use App\Http\Controllers\Controller;
 use App\Models\Tapel;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\TapelExport;
 
 class TapelController extends Controller
 {
@@ -92,5 +94,8 @@ class TapelController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function tapelexport(){
+        return Excel::download(new TapelExport, 'Data-Tapel.xlsx');
     }
 }

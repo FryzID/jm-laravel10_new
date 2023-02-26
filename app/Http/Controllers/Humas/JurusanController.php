@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Humas;
 use App\Http\Controllers\Controller;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\JurusanExport;
 
 class JurusanController extends Controller
 {
@@ -96,5 +98,8 @@ class JurusanController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function jurusanexport(){
+        return Excel::download(new JurusanExport, 'Data-Jurusan.xlsx');
     }
 }

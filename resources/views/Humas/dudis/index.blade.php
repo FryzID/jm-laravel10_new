@@ -10,11 +10,13 @@
                         data-bs-target="#form-create">
                         <i class="fa fa-plus"></i>
                     </button>
-                    <a type="button" class="btn btn-success mb-2" href="/humas/dudi-export">
-                    <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 </div>
             </div>
             <div class="card-body">
+                <a type="button" class="btn btn-success mb-4" href="/humas/dudi-import">
+                    <i class="fa fa-sign-in-alt"></i> Import Excel</a>
+                <a type="button" class="btn btn-success mb-4" href="/humas/dudi-export">
+                    <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 <div class="table-responsive">
                     <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%"
                         cellspacing="0">
@@ -45,8 +47,8 @@
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
                                             data-toggle="modal" data-target="#form-detail{{ $dudi->kode_dudi }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <button class="btn btn-circle btn-primary border-0 m-1" 
-                                            data-toggle="modal" data-target="#form-edit{{ $dudi->dudi_id }}"><i
+                                        <button class="btn btn-circle btn-primary border-0 m-1" data-toggle="modal"
+                                            data-target="#form-edit{{ $dudi->dudi_id }}"><i
                                                 class="fa fa-pen"></i></button>
                                         <form action="/humas/dudi/{{ $dudi->dudi_id }}" method="post" class="d-inline">
                                             @method('DELETE')

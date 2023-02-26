@@ -9,19 +9,20 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form class="form-valide" action="/humas/tapel" method="post">
+            <form class="form-valide" action="/humas/tapel" method="post">
+                <div class="modal-body">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
                         <label class="form-label">Tahun Pelajaran</label>
                         <input type="number" class="form-control" name="tapel" id="exampleFormControlInput1" required>
                     </div>
+                </div>
+                <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Tambah</button>
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
-            </div>
+                </div>
             </form>
         </div>
     </div>
-</div>
 </div>

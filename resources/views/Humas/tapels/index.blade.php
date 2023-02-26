@@ -13,8 +13,13 @@
                 </div>
             </div>
             <div class="card-body">
+                <a type="button" class="btn btn-success mb-4" href="/humas/tapel-import">
+                    <i class="fa fa-sign-in-alt"></i> Import Excel</a>
+                <a type="button" class="btn btn-success mb-4" href="/humas/tapel-export">
+                    <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 <div class="table-responsive">
-                    <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%" cellspacing="0">
+                    <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%"
+                        cellspacing="0">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>

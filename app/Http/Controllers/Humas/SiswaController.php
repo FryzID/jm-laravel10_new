@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Humas;
 use App\Http\Controllers\Controller;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\SiswaExport;
 
 class SiswaController extends Controller
 {
@@ -99,5 +101,8 @@ class SiswaController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function siswaexport(){
+        return Excel::download(new SiswaExport, 'Data-Siswa.xlsx');
     }
 }

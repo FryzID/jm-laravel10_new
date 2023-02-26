@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Jurnal;
 use App\Models\SiswaPkl;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\JurnalExport;
 
 class JurnalController extends Controller
 {
@@ -101,5 +103,8 @@ class JurnalController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function jurnalexport(){
+        return Excel::download(new JurnalExport, 'Data-Jurnal.xlsx');
     }
 }
