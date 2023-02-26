@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
-use App\Models\Dudi;
-use App\Models\Guru;
-use App\Models\KelasSiswa;
-use App\Models\SiswaPkl;
+use App\Http\Controllers\Controller;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
-class SiswaPklController extends Controller
+class SiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,9 @@ class SiswaPklController extends Controller
      */
     public function index()
     {
-        $siswapkls = SiswaPkl::latest()->get();
-        return view('Humas.siswapkls.index', compact('siswapkls'), [
-            'title' => "Siswa PKL",
-            'dudis' => Dudi::all(),
-            'kelassiswas' => KelasSiswa::all(),
-            'gurus' => Guru::all(),
+        $siswas = Siswa::latest()->get();
+        return view('Humas.siswas.index', compact('siswas'), [
+            'title' => 'Siswa',
         ]);
     }
 
@@ -44,17 +39,21 @@ class SiswaPklController extends Controller
      */
     public function store(Request $request)
     {
-        $siswapkls = $request->validate([
-            'dudi_id' => 'required|max:255',
-            'kelassiswa_id' => 'required|max:255',
-            'guru_id' => 'required|max:255',
-        ]);
+        $check = Siswa::where('nis', '=', $request->nis)->first();
+        if ($check == null) {
+            Siswa::create([
+                'nis' => $request->nis, 'required|max:225|unique:siswas,nis',
+                'nama_siswa' => $request->nama_siswa, 'required|max:225',
+                'username' => $request->nama_siswa, 'required|max:225',
+                'password' => bcrypt($request->nis),'required|max:225',
+                'level' => $request->level, 'required|max:255',
+            ]);
 
-        SiswaPkl::create($siswapkls);
-
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        // kembalikan ke halaman post
-        return redirect('/humas/siswapkl');
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            return redirect('/humas/siswa');
+        } else {
+            return redirect('/humas/siswa')->with('warning', 'NIS Sudah Ada');
+        }
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
-use App\Models\Jurusan;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class JurusanController extends Controller
+class SertifikatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusans = Jurusan::all();
-        return view('Humas.jurusans.index', compact('jurusans'), [
-            'title' => "Jurusan",
-        ]);
+        //
     }
 
     /**
@@ -38,14 +35,7 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        $jurusan = $request->validate([
-            'nama_jurusan' => 'required|max:255',
-        ]);
-
-        Jurusan::create($jurusan);
-
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('/humas/jurusan');
+        //
     }
 
     /**
@@ -67,8 +57,7 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $jurusan = Jurusan::find($id);
-        return view('jurusans.edit', compact('jurusan'));
+        //
     }
 
     /**
@@ -80,10 +69,7 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Jurusan::find($id)->update([
-            'nama_jurusan' => $request->nama_jurusan,
-        ]);
-        return redirect('jurusans');
+        //
     }
 
     /**

@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
-use App\Models\Jurusan;
+use App\Http\Controllers\Controller;
 use App\Models\Kelas;
+use App\Models\KelasSiswa;
+use App\Models\Siswa;
+use App\Models\Tapel;
 use Illuminate\Http\Request;
 
-class KelasController extends Controller
+class KelasSiswaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +18,12 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $data = Kelas::with('jurusan')->get();
-        $level_kelas = ["XIII", "XII", "XI", "X"];
-        $nama_kelas = ["A", "B", "C", "D"];
-        return view('Humas.kelas.index', compact('data', 'level_kelas', 'nama_kelas'), [
-            'title' => "Kelas",
-            'kelas' => Kelas::latest()->get(),
-            'jurusan' => Jurusan::all(),
+        $kelassiswas = KelasSiswa::latest()->get();
+        return view('Humas.kelassiswas.index', compact('kelassiswas'), [
+            'title' => "Kelas Siswa",
+            'kelas' => Kelas::all(),
+            'siswas' => Siswa::all(),
+            'tapels' => Tapel::all(),
         ]);
     }
 
@@ -43,18 +45,18 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-
-        $kelas = $request->validate([
-            'jurusan_id' => 'required|max:255',
-            'level_kelas' => 'required|max:255',
-            'nama_kelas' => 'required|max:255',
+        $kelassiswas = $request->validate([
+            'kelas_id' => 'required|max:255',
+            'siswa_id' => 'required|max:255',
+            'tapel_id' => 'required|max:255',
         ]);
 
-        Kelas::create($kelas);
+        KelasSiswa::create($kelassiswas);
 
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
-        return redirect('/humas/kelas');
+        return redirect('/humas/kelassiswa');
+
     }
 
     /**

@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
-use App\Models\Kelas;
-use App\Models\KelasSiswa;
-use App\Models\Siswa;
-use App\Models\Tapel;
+use App\Http\Controllers\Controller;
+use App\Models\Guru;
 use Illuminate\Http\Request;
 
-class KelasSiswaController extends Controller
+class GuruController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,12 +15,9 @@ class KelasSiswaController extends Controller
      */
     public function index()
     {
-        $kelassiswas = KelasSiswa::latest()->get();
-        return view('Humas.kelassiswas.index', compact('kelassiswas'), [
-            'title' => "Kelas Siswa",
-            'kelas' => Kelas::all(),
-            'siswas' => Siswa::all(),
-            'tapels' => Tapel::all(),
+        $gurus = Guru::orderBy('guru_id', 'desc')->get();
+        return view('Humas.gurus.index', compact('gurus'), [
+            'title' => 'Guru'
         ]);
     }
 
@@ -44,18 +39,22 @@ class KelasSiswaController extends Controller
      */
     public function store(Request $request)
     {
-        $kelassiswas = $request->validate([
-            'kelas_id' => 'required|max:255',
-            'siswa_id' => 'required|max:255',
-            'tapel_id' => 'required|max:255',
-        ]);
-
-        KelasSiswa::create($kelassiswas);
-
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        // kembalikan ke halaman post
-        return redirect('/humas/kelassiswa');
-
+        $check = Guru::where('nip', '=', $request->nip)->first();
+        if ($check == null) {
+            Guru::create([
+                'nip' => $request->nip, 'required|max:225|unique:gurus,nip',
+                'nama_guru' => $request->nama_guru, 'required|max:225',
+                'username' => $request->nama_guru, 'required|max:225',
+                'password' => bcrypt($request->nip),'required|max:225',
+                'level' => $request->level, 'required|max:255',
+            ]);
+            
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            // kembalikan ke halaman post
+            return redirect('humas/guru');
+        } else {
+            return redirect('humas/guru')->with('warning', 'NIP Sudah Ada');
+        }
     }
 
     /**
@@ -100,6 +99,7 @@ class KelasSiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Guru::find($id)->delete();
+        return redirect('/humas/guru')->with('success', 'Selamat Data Telah Dihapus!!');
     }
 }

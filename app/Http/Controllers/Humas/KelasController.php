@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
-use App\Models\Humas;
+use App\Http\Controllers\Controller;
+use App\Models\Jurusan;
+use App\Models\Kelas;
 use Illuminate\Http\Request;
 
-class HumasController extends Controller
+class KelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +16,13 @@ class HumasController extends Controller
      */
     public function index()
     {
-        $humas = Humas::latest()->get();
-        return view('Humas.humas.index', compact('humas'), [
-            'title' => 'Humas'
+        $data = Kelas::with('jurusan')->get();
+        $level_kelas = ["XIII", "XII", "XI", "X"];
+        $nama_kelas = ["A", "B", "C", "D"];
+        return view('Humas.kelas.index', compact('data', 'level_kelas', 'nama_kelas'), [
+            'title' => "Kelas",
+            'kelas' => Kelas::latest()->get(),
+            'jurusan' => Jurusan::all(),
         ]);
     }
 
@@ -38,21 +44,18 @@ class HumasController extends Controller
      */
     public function store(Request $request)
     {
-        $check = Humas::where('nip', '=', $request->nip)->first();
-        if ($check == null) {
-            Humas::create([
-                'nip' => $request->nip, 'required|max:225|unique:humas,nip',
-                'nama_humas' => $request->nama_humas, 'required|max:225',
-                'username' => $request->nama_humas, 'required|max:225',
-                'password' => bcrypt($request->nip),'required|max:225',
-                'level' => $request->level, 'required|max:255',
-            ]);
 
-            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-            return redirect('/humas/datahumas');
-        } else {
-            return redirect('/humas/datahumas')->with('warning', 'NIP Sudah Ada');
-        }
+        $kelas = $request->validate([
+            'jurusan_id' => 'required|max:255',
+            'level_kelas' => 'required|max:255',
+            'nama_kelas' => 'required|max:255',
+        ]);
+
+        Kelas::create($kelas);
+
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+        // kembalikan ke halaman post
+        return redirect('/humas/kelas');
     }
 
     /**
@@ -97,7 +100,6 @@ class HumasController extends Controller
      */
     public function destroy($id)
     {
-        Humas::find($id)->delete();
-        return redirect('/humas/datahumas')->with('success', 'Selamat Data Telah Dihapus!!');
+        //
     }
 }

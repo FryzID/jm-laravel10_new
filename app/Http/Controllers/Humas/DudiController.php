@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
+use App\Http\Controllers\Controller;
 use App\Models\Dudi;
 use App\Models\Jurusan;
 use Illuminate\Http\Request;

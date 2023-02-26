@@ -17,7 +17,7 @@ class LoginController extends Controller
 
    public function postlogin(Request $request){
     if(Auth::guard('humas')->attempt(['username' => $request->username,'password' => $request->password])){
-        return redirect('/home')->with('success', 'Login Berhasil!');
+        return redirect('/humas/dashboard')->with('success', 'Login Berhasil!');
     }
     elseif(Auth::guard('guru')->attempt(['username' => $request->username,'password' => $request->password])){
         return redirect('/home')->with('success', 'Login Berhasil!');

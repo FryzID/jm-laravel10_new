@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
+use App\Http\Controllers\Controller;
+use App\Models\Jurnal;
+use App\Models\SiswaPkl;
 use Illuminate\Http\Request;
 
-class SertifikatController extends Controller
+class JurnalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +16,11 @@ class SertifikatController extends Controller
      */
     public function index()
     {
-        //
+        return view('Humas.jurnals.index', [
+            'title' => "Transaksi Jurnal",
+            'jurnals' => Jurnal::latest()->get(),
+            'siswapkls' => SiswaPkl::all(),
+        ]);
     }
 
     /**
@@ -34,7 +41,21 @@ class SertifikatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jurnals = $request->validate([
+            'siswapkl_id' => 'required|max:255',
+            'tanggal' => 'required|max:255',
+            'absen_masuk' => 'required|max:255',
+            'absen_keluar' => 'required|max:255',
+            'keterangan' => 'required|max:255',
+            'kegiatan' => 'required|max:255',
+            'konfirmasi_dudi' => 'required|max:255',
+        ]);
+
+        Jurnal::create($jurnals);
+
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+        // kembalikan ke halaman post
+        return redirect('/humas/jurnal');
     }
 
     /**

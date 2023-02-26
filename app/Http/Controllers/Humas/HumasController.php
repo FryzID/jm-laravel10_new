@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Humas;
 
-use App\Models\Tapel;
+use App\Http\Controllers\Controller;
+use App\Models\Humas;
 use Illuminate\Http\Request;
 
-class TapelController extends Controller
+class HumasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class TapelController extends Controller
      */
     public function index()
     {
-        $tapels = Tapel::all();
-        return view('Humas.tapels.index', compact('tapels'), [
-            'title' => "Tahun Pelajaran",
+        $humas = Humas::latest()->get();
+        return view('Humas.humas.index', compact('humas'), [
+            'title' => 'Humas'
         ]);
     }
 
@@ -38,14 +39,21 @@ class TapelController extends Controller
      */
     public function store(Request $request)
     {
-        $tapels = $request->validate([
-            'tapel' => 'required|max:255',
-        ]);
+        $check = Humas::where('nip', '=', $request->nip)->first();
+        if ($check == null) {
+            Humas::create([
+                'nip' => $request->nip, 'required|max:225|unique:humas,nip',
+                'nama_humas' => $request->nama_humas, 'required|max:225',
+                'username' => $request->nama_humas, 'required|max:225',
+                'password' => bcrypt($request->nip),'required|max:225',
+                'level' => $request->level, 'required|max:255',
+            ]);
 
-        Tapel::create($tapels);
-
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('/humas/tapel');
+            $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+            return redirect('/humas/datahumas');
+        } else {
+            return redirect('/humas/datahumas')->with('warning', 'NIP Sudah Ada');
+        }
     }
 
     /**
@@ -90,6 +98,7 @@ class TapelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Humas::find($id)->delete();
+        return redirect('/humas/datahumas')->with('success', 'Selamat Data Telah Dihapus!!');
     }
 }
