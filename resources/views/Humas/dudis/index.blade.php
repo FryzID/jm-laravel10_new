@@ -71,7 +71,7 @@
 
 <!-- MODAL -->
 @include('Humas.dudis.create')
-@include('Humas.dudis.edit')
-@include('Humas.dudis.detail')
+<!-- @include('Humas.dudis.edit')
+@include('Humas.dudis.detail') -->
 
 @endsection
