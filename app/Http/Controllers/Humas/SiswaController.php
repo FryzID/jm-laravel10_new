@@ -89,7 +89,16 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Siswa::find($id)->update([
+            'nis' => $request->nis, 'required|max:225|unique:siswas,nis',
+            'nama_siswa' => $request->nama_siswa, 'required|max:225',
+            'username' => $request->nama_siswa, 'required|max:225',
+            'password' => bcrypt($request->nis),'required|max:225',
+            'level' => $request->level, 'required|max:255',
+        ]);
+
+        $request->session()->flash('success', 'Selamat Data Telah Diupdate!!');
+        return redirect('/humas/siswa');
     }
 
     /**

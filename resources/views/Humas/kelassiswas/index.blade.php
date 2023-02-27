@@ -43,10 +43,9 @@
                                             data-toggle="modal"
                                             data-target="#form-detail{{ $kelassiswa->kelassiswa_id }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal"
-                                            data-target="#form-edit{{ $kelassiswa->kelassiswa_id }}"><i
-                                                class="fa fa-pen"></i></a>
+                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
+                                            data-bs-target="#form-edit{{ $kelassiswa->kelassiswa_id }}"><i
+                                                class="fa fa-pen"></i></button>
                                         <form action="/humas/kelassiswa/{{ $kelassiswa->kelassiswa_id }}" method="post"
                                             class="d-inline">
                                             @method('DELETE')
@@ -69,7 +68,6 @@
 
 <!-- MODAL -->
 @include('Humas.kelassiswas.create')
-{{-- @include('kelassiswas.edit')
-@include('kelassiswas.detail') --}}
+@include('Humas.kelassiswas.edit')
 
 @endsection

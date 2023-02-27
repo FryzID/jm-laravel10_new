@@ -13,9 +13,9 @@
                 </div>
             </div>
             <div class="card-body">
-                <a type="button" class="btn btn-success mb-4" href="/humas/siswa-import">
+                <a type="button" class="btn btn-success mb-4" href="/humas/siswapkl-import">
                     <i class="fa fa-sign-in-alt"></i> Import Excel</a>
-                <a type="button" class="btn btn-success mb-4" href="/humas/siswa-export">
+                <a type="button" class="btn btn-success mb-4" href="/humas/siswapkl-export">
                     <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 <div class="table-responsive">
                     <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%"
@@ -23,26 +23,30 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">NIS</th>
-                                <th scope="col">Nama Siswa</th>
+                                <th scope="col">Dudi</th>
+                                <th scope="col">Kelas Siswa</th>
+                                <th scope="col">Guru</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $siswas as $siswa )
+                            @foreach( $siswapkls as $siswapkl )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $siswa->nis }}</td>
-                                <td>{{ $siswa->nama_siswa }}</td>
+                                <td>{{ $siswapkl->dudi->nama_dudi }}</td>
+                                <td>{{ $siswapkl->kelassiswa->kelas->level_kelas . ' ' . $siswapkl->kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $siswapkl->kelassiswa->kelas->nama_kelas . ' ' . $siswapkl->kelassiswa->siswa->nama_siswa . ' ' . $siswapkl->kelassiswa->tapel->tapel }}
+                                </td>
+                                <td>{{ $siswapkl->guru->nama_guru }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal" data-target="#form-detail{{ $siswa->siswa_id }}"><i
+                                            data-toggle="modal"
+                                            data-target="#form-detail{{ $siswapkl->siswapkl_id }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
-                                            data-bs-target="#form-edit{{ $siswa->siswa_id }}"><i
-                                                class="fa fa-pen"></i></button>
-                                        <form action="humas/siswa/{{ $siswa->siswa_id }}" method="post"
+                                        <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
+                                            data-toggle="modal" data-target="#form-edit{{ $siswapkl->siswapkl_id }}"><i
+                                                class="fa fa-pen"></i></a>
+                                        <form action="/humas/siswapkl/{{ $siswapkl->siswapkl_id }}" method="post"
                                             class="d-inline">
                                             @method('DELETE')
                                             @csrf
@@ -63,7 +67,8 @@
 </div>
 
 <!-- MODAL -->
-@include('Humas.siswas.create')
-@include('Humas.siswas.edit')
+@include('Humas.siswapkls.create')
+{{-- @include('siswapkls.edit')
+@include('siswapkls.detail') --}}
 
 @endsection

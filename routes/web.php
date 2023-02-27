@@ -36,7 +36,7 @@ Route::group(['middleware' =>  'guest'], function(){
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth:guru,humas,siswa,dudi', 'ceklevel:Guru,Siswa,Dudi,Humas']], function(){
+Route::group(['middleware' => ['auth:humas,siswa,dudi', 'ceklevel:Siswa,Dudi,Humas']], function(){
     Route::get('/humas/dashboard', function () {
         return view('humas.dashboard');
     })->middleware('auth');
@@ -62,4 +62,9 @@ Route::group(['middleware' => ['auth:guru,humas,siswa,dudi', 'ceklevel:Guru,Sisw
     Route::get('humas/siswapkl-export',[HumasSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');
     Route::get('humas/datahumas-export',[HumasHumasController::class,'datahumasexport'])->name('export-datahumas');
     Route::get('humas/jurnal-export',[HumasJurnalController::class,'jurnalexport'])->name('export-jurnal');
+});
+
+
+Route::group(['middleware' => ['auth:guru', 'ceklevel:Guru']], function(){
+    Route::resource('guru/siswapkl', HumasSiswaPklController::class);
 });

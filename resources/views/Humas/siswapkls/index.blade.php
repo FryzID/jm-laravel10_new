@@ -43,9 +43,9 @@
                                             data-toggle="modal"
                                             data-target="#form-detail{{ $siswapkl->siswapkl_id }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $siswapkl->siswapkl_id }}"><i
-                                                class="fa fa-pen"></i></a>
+                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
+                                            data-bs-target="#form-edit{{ $siswapkl->siswapkl_id }}"><i
+                                                class="fa fa-pen"></i></button>
                                         <form action="/humas/siswapkl/{{ $siswapkl->siswapkl_id }}" method="post"
                                             class="d-inline">
                                             @method('DELETE')
@@ -68,7 +68,6 @@
 
 <!-- MODAL -->
 @include('Humas.siswapkls.create')
-{{-- @include('siswapkls.edit')
-@include('siswapkls.detail') --}}
+@include('Humas.siswapkls.edit')
 
 @endsection

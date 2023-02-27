@@ -63,7 +63,7 @@
 
 <!-- MODAL -->
 @include('Humas.gurus.create')
-{{-- @include('gurus.edit')
-@include('gurus.detail') --}}
+@include('Humas.gurus.edit')
+
 
 @endsection

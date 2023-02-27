@@ -95,30 +95,22 @@ class DudiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dudi $dudi)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'kode_dudi' => 'required',
-            'nama_dudi' => 'required',
-            'username' => 'required',
-            'password' => 'required',
-            'alamat' => 'required',
-            'telepon' => 'required',
-            'level' => 'required',
-            'jurusan_id' => 'required',
+        Dudi::find($id)->update([
+            'kode_dudi' => $request->kode_dudi, 'required|max:255|unique:dudis,kode_dudi',
+            'nama_dudi' => $request->nama_dudi,  'required|max:255',
+            'username' => $request->nama_dudi, 'required|max:255',
+            'password' => bcrypt($request->kode_dudi), 'required|max:255',
+            'alamat' => $request->alamat, 'required|max:255',
+            'telepon' => $request->telepon, 'required|max:255',
+            'level' => $request->level, 'required|max:255',
+            'jurusan_id' => $request->jurusan_id, 'required|max:255',
         ]);
 
-        $dudi->kode_dudi = $request->kode_dudi;
-        $dudi->nama_dudi = $request->nama_dudi;
-        $dudi->username = $request->nama_dudi;
-        $dudi->alamat = $request->alamat;
-        $dudi->telepon = $request->telepon;
-        $dudi->level = $request->level;
-        $dudi->jurusan_id = $request->jurusan_id;
-        if ($request->password)
-            $user->password = Hash::make($request->kode_dudi);
-        $dudi->save();
-        return redirect('/humas/dudi')->with('success', 'Selamat Data Telah Di Update!!');
+        $request->session()->flash('success', 'Selamat Data Telah Diupdate!!');
+        // kembalikan ke halaman post
+        return redirect('/humas/dudi');
     }
 
     /**

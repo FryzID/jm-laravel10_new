@@ -17,9 +17,9 @@ class HumasController extends Controller
      */
     public function index()
     {
-        $humas = Humas::latest()->get();
-        return view('Humas.humas.index', compact('humas'), [
-            'title' => 'Humas'
+        return view('Humas.humas.index', [
+            'title' => "Data Humas",
+            'humass' => Humas::latest()->get(),
         ]);
     }
 
@@ -89,7 +89,16 @@ class HumasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Humas::find($id)->update([
+            'nip' => $request->nip, 'required|max:225|unique:humas,nip',
+            'nama_humas' => $request->nama_humas, 'required|max:225',
+            'username' => $request->nama_humas, 'required|max:225',
+            'password' => bcrypt($request->nip),'required|max:225',
+            'level' => $request->level, 'required|max:255',
+        ]);
+
+        $request->session()->flash('success', 'Selamat Data Telah Diupdate!!');
+        return redirect('/humas/datahumas');
     }
 
     /**

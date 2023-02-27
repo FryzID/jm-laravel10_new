@@ -20,7 +20,7 @@
                     @elseif ( Str::length(Auth::guard('dudi')->user()) > 0)
                     <span class="d-sm-inline d-none">{{ Auth::guard('dudi')->user()->nama_dudi }}</span>
                     @elseif ( Str::length(Auth::guard('guru')->user()) > 0)
-                    <span class="d-sm-inline d-none">{{ Auth::guard('guru')->user()->guru }}</span>
+                    <span class="d-sm-inline d-none">{{ Auth::guard('guru')->user()->nama_guru }}</span>
                     @elseif ( Str::length(Auth::guard('siswa')->user()) > 0)
                     <span class="d-sm-inline d-none">{{ Auth::guard('siswa')->user()->nama_siswa }}</span>
                     @endif

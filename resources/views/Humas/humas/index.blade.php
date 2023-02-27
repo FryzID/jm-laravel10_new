@@ -29,7 +29,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach( $humas as $hum )
+                            @foreach( $humass as $hum )
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $hum->nip }}</td>
@@ -39,9 +39,9 @@
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
                                             data-toggle="modal" data-target="#form-detail{{ $hum->humas_id }}"><i
                                                 class="fa fa-eye"></i></a>
-                                        <a class="btn btn-circle btn-primary border-0 m-1" onclick="getEdit()"
-                                            data-toggle="modal" data-target="#form-edit{{ $hum->humas_id }}"><i
-                                                class="fa fa-pen"></i></a>
+                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
+                                            data-bs-target="#form-edit{{ $hum->humas_id }}"><i
+                                                class="fa fa-pen"></i></button>
                                         <form action="humas/datahumas/{{ $hum->humas_id }}" method="post"
                                             class="d-inline">
                                             @method('DELETE')
@@ -64,7 +64,7 @@
 
 <!-- MODAL -->
 @include('Humas.humas.create')
-{{-- @include('humas.edit')
-@include('humas.detail') --}}
+@include('Humas.humas.edit')
+
 
 @endsection
