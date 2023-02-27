@@ -86,7 +86,8 @@ class JurusanController extends Controller
         Jurusan::find($id)->update([
             'nama_jurusan' => $request->nama_jurusan,
         ]);
-        return redirect('jurusans');
+        $request->session()->flash('success', 'Selamat Data Telah Diupdate!!');
+        return redirect('/humas/jurusan');
     }
 
     /**

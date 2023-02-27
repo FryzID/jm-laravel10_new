@@ -1,14 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Humas;
+namespace App\Http\Controllers\Dudi;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tapel;
+use App\Models\Dudi;
+use App\Models\Guru;
+use App\Models\KelasSiswa;
+use App\Models\SiswaPkl;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\TapelExport;
+use App\Exports\SiswaPklExport;
 
-class TapelController extends Controller
+class SiswaPklController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +20,12 @@ class TapelController extends Controller
      */
     public function index()
     {
-        $tapels = Tapel::all();
-        return view('Humas.tapels.index', compact('tapels'), [
-            'title' => "Tahun Pelajaran",
+        $siswapkls = SiswaPkl::latest()->get();
+        return view('Dudi.siswapkls.index', compact('siswapkls'), [
+            'title' => "Siswa PKL",
+            'dudis' => Dudi::all(),
+            'kelassiswas' => KelasSiswa::all(),
+            'gurus' => Guru::all(),
         ]);
     }
 
@@ -41,14 +47,7 @@ class TapelController extends Controller
      */
     public function store(Request $request)
     {
-        $tapels = $request->validate([
-            'tapel' => 'required|max:255',
-        ]);
-
-        Tapel::create($tapels);
-
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('/humas/tapel');
+        //
     }
 
     /**
@@ -82,11 +81,7 @@ class TapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Tapel::find($id)->update([
-            'tapel' => $request->tapel,
-        ]);
-        $request->session()->flash('success', 'Selamat Data Telah Diupdate!!');
-        return redirect('/humas/tapel');
+        //
     }
 
     /**
@@ -99,7 +94,7 @@ class TapelController extends Controller
     {
         //
     }
-    public function tapelexport(){
-        return Excel::download(new TapelExport, 'Data-Tapel.xlsx');
+    public function siswapklexport(){
+        return Excel::download(new SiswaPklExport, 'Data-SiswaPkl.xlsx');
     }
 }

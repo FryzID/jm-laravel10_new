@@ -12,6 +12,10 @@ use App\Http\Controllers\Humas\KelasSiswaController as HumasKelasSiswaController
 use App\Http\Controllers\Humas\SiswaController as HumasSiswaController;
 use App\Http\Controllers\Humas\SiswaPklController as HumasSiswaPklController;
 use App\Http\Controllers\Humas\TapelController as HumasTapelController;
+
+use App\Http\Controllers\Guru\SiswaPklController as GuruSiswaPklController;
+
+use App\Http\Controllers\Dudi\SiswaPklController as DudiSiswaPklController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,7 +40,7 @@ Route::group(['middleware' =>  'guest'], function(){
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth:humas,siswa,dudi', 'ceklevel:Siswa,Dudi,Humas']], function(){
+Route::group(['middleware' => ['auth:humas,siswa', 'ceklevel:Siswa,Humas']], function(){
     Route::get('/humas/dashboard', function () {
         return view('humas.dashboard');
     })->middleware('auth');
@@ -66,5 +70,19 @@ Route::group(['middleware' => ['auth:humas,siswa,dudi', 'ceklevel:Siswa,Dudi,Hum
 
 
 Route::group(['middleware' => ['auth:guru', 'ceklevel:Guru']], function(){
-    Route::resource('guru/siswapkl', HumasSiswaPklController::class);
+    Route::get('/guru/dashboard', function () {
+        return view('guru.dashboard');
+    })->middleware('auth');
+
+    Route::resource('guru/siswapkl', GuruSiswaPklController::class);
+    Route::get('guru/siswapkl-export',[GuruSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');
+});
+
+Route::group(['middleware' => ['auth:dudi', 'ceklevel:Dudi']], function(){
+    Route::get('/dudi/dashboard', function () {
+        return view('dudi.dashboard');
+    })->middleware('auth');
+
+    Route::resource('dudi/siswapkl', DudiSiswaPklController::class);
+    Route::get('dudi/siswapkl-export',[DudiSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');
 });

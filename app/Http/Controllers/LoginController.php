@@ -20,10 +20,10 @@ class LoginController extends Controller
         return redirect('/humas/dashboard')->with('success', 'Login Berhasil!');
     }
     elseif(Auth::guard('guru')->attempt(['username' => $request->username,'password' => $request->password])){
-        return redirect('/home')->with('success', 'Login Berhasil!');
+        return redirect('/guru/dashboard')->with('success', 'Login Berhasil!');
     }
     elseif(Auth::guard('dudi')->attempt(['username' => $request->username,'password' => $request->password])){
-        return redirect('/home')->with('success', 'Login Berhasil!');
+        return redirect('/dudi/dashboard')->with('success', 'Login Berhasil!');
     }
     elseif(Auth::guard('siswa')->attempt(['username' => $request->username,'password' => $request->password])){
         return redirect('/home')->with('success', 'Login Berhasil!');

@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == '') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/dashboard') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/dashboard">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-home me-sm-1"></i>
@@ -23,7 +23,7 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MASTER DATA</h6>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'jurusan') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/jurusan') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/jurusan">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'kelas') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/kelas') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/kelas">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -41,7 +41,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'tapels') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/tapel') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/tapel">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -50,7 +50,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'dudis') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/dudi') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/dudi">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -59,7 +59,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'gurus') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/guru') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/guru">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -68,7 +68,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'humas') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/datahumas') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/datahumas">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -77,7 +77,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'siswas') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/siswa') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/siswa">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -86,7 +86,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'kelassiswas') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/kelassiswa') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/kelassiswa">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
@@ -95,7 +95,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white {{ (Request::segment(1) == 'siswapkls') ? "active bg-gradient-success" : "" }}"
+                <a class="nav-link text-white {{ Request::is('humas/siswapkl') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/siswapkl">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>

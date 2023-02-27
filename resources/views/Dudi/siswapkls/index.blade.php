@@ -9,9 +9,9 @@
                 </div>
             </div>
             <div class="card-body">
-                <a type="button" class="btn btn-success mb-4" href="/guru/siswapkl-import">
+                <a type="button" class="btn btn-success mb-4" href="/dudi/siswapkl-import">
                     <i class="fa fa-sign-in-alt"></i> Import Excel</a>
-                <a type="button" class="btn btn-success mb-4" href="/guru/siswapkl-export">
+                <a type="button" class="btn btn-success mb-4" href="/dudi/siswapkl-export">
                     <i class="fa fa-sign-out-alt"></i> Export Excel</a>
                 <div class="table-responsive">
                     <table class="table align-items-center mb-0 text-center" id="dataTable" width="100%"
@@ -27,7 +27,7 @@
                         </thead>
                         <tbody>
                             @foreach( $siswapkls as $siswapkl )
-                            @if($siswapkl->guru_id == Auth::guard('guru')->user()->guru_id)
+                            @if($siswapkl->dudi_id == Auth::guard('dudi')->user()->dudi_id)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $siswapkl->dudi->nama_dudi }}</td>
