@@ -40,7 +40,7 @@ Route::group(['middleware' =>  'guest'], function(){
 
 Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth:siswa', 'ceklevel:Humas']], function(){
+Route::group(['middleware' => ['auth:humas', 'ceklevel:Humas']], function(){
     Route::get('/humas/dashboard', function () {
         return view('humas.dashboard');
     })->middleware('auth');
