@@ -61,11 +61,11 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h6 class="mb-0 ">NILAI</h6>
+                    <h6 class="mb-0 ">NILAI NON TEKNIS</h6>
                     <p class="text-sm ">Lihatlah nilai anda</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/tapel">Click Disini</a>
+                        <a href="/siswa/nilai-nonteknis">Click Disini</a>
                     </div>
                 </div>
             </div>
