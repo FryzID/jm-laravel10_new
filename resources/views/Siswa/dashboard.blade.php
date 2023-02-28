@@ -19,8 +19,8 @@
             <div class="card z-index-2  ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                     <div class=" shadow-success border-radius-lg py-3 pe-1"
-                        style="color: white !important; background-color: #ffb300 !important;">
-                        <center><img src="{{ asset('assets/img/pict-dashboard/humas.png') }}" class="" width="300"
+                        style="color: white !important; background-color: #0084ff !important;">
+                        <center><img src="{{ asset('assets/img/pict-siswa/jurnal.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
@@ -38,8 +38,8 @@
         <div class="col-lg-4 mt-4 mb-3">
             <div class="card z-index-2 ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                    <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                        <center><img src="{{ asset('assets/img/pict-dashboard/guru.png') }}" class="" width="300"
+                    <div class="bg-gradient-warning shadow-dark border-radius-lg py-3 pe-1">
+                        <center><img src="{{ asset('assets/img/pict-siswa/riwayat.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
             <div class="card z-index-2 ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                     <div class="bg-gradient-info shadow-dark border-radius-lg py-3 pe-1">
-                        <center><img src="{{ asset('assets/img/pict-dashboard/tapel.png') }}" class="" width="300"
+                        <center><img src="{{ asset('assets/img/pict-siswa/nilai.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
             <div class="card z-index-2 ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                     <div class="bg-gradient-success shadow-dark border-radius-lg py-3 pe-1">
-                        <center><img src="{{ asset('assets/img/pict-dashboard/kelass.png') }}" class="" width="300"
+                        <center><img src="{{ asset('assets/img/pict-siswa/sertifikat.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
             <div class="card z-index-2 ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                     <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                        <center><img src="{{ asset('assets/img/pict-dashboard/magang.png') }}" class="" width="300"
+                        <center><img src="{{ asset('assets/img/pict-siswa/jurusan.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
             <div class="card z-index-2 ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
                     <div class="bg-gradient-light shadow-dark border-radius-lg py-3 pe-1">
-                        <center><img src="{{ asset('assets/img/pict-dashboard/dudii.png') }}" class="" width="300"
+                        <center><img src="{{ asset('assets/img/pict-siswa/dudi.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
