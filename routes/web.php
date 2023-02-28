@@ -86,3 +86,9 @@ Route::group(['middleware' => ['auth:dudi', 'ceklevel:Dudi']], function(){
     Route::resource('dudi/siswapkl', DudiSiswaPklController::class);
     Route::get('dudi/siswapkl-export',[DudiSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');
 });
+
+Route::group(['middleware' => ['auth:siswa', 'ceklevel:Siswa']], function(){
+    Route::get('/siswa/dashboard', function () {
+        return view('siswa.dashboard');
+    })->middleware('auth');
+});

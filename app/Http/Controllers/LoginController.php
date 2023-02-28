@@ -26,7 +26,7 @@ class LoginController extends Controller
         return redirect('/dudi/dashboard')->with('success', 'Login Berhasil!');
     }
     elseif(Auth::guard('siswa')->attempt(['username' => $request->username,'password' => $request->password])){
-        return redirect('/home')->with('success', 'Login Berhasil!');
+        return redirect('/siswa/dashboard')->with('success', 'Login Berhasil!');
     }
     return redirect('/login')->with('warning', 'Login Gagal! <br> Pastikan Katasandi / <br> Username Yang benar!');
    }

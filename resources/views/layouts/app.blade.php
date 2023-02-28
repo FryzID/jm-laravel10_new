@@ -10,11 +10,11 @@
         @include('partials.sidebar-humas')
     @elseif ( Str::length(Auth::guard('guru')->user()) > 0)
         @include('partials.sidebar-guru')
-        @elseif ( Str::length(Auth::guard('dudi')->user()) > 0)
+    @elseif ( Str::length(Auth::guard('dudi')->user()) > 0)
         @include('partials.sidebar-dudi')
     @endif
 
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
 
         @include('partials.navbar')
         <div class="container-fluid py-4">
