@@ -47,7 +47,7 @@
                                 </script>,
                                 di buat dengan <i class="fa fa-heart" aria-hidden="true"></i> by
                                 <a href="{{ env('APP_URL') }}" class="font-weight-bold text-white"
-                                    target="_blank">Marleth Young Developer</a>
+                                    target="_blank">SIJUMA</a>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 my-auto text-white">

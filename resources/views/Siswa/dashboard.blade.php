@@ -7,25 +7,24 @@
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="modal-header bg-gradient-success shadow-success border-radius-lg p-3">
-                        <h3 class="text-white" id="judul">SELAMAT DATANG DI....</h3>
+                        <h3 class="text-white" id="judul">SELAMAT DATANG DI SIJUMA</h3>
                     </div>
                 </div>
                 <div class="card-body">
-                    HAI JSQWUDHEWIBHDFCKEWHCF SILANHKAN PILEH MENU
+                    SELAMAT DATANG {{ Auth::guard('siswa')->user()->nama_siswa }} SILAHKAN PILIH MENU YANG ANDA BUTUHKAN
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 mt-4 mb-4">
             <div class="card z-index-2  ">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
-                    <div class=" shadow-success border-radius-lg py-3 pe-1"
+                    <div class="shadow-success border-radius-lg py-3 pe-1"
                         style="color: white !important; background-color: #0084ff !important;">
                         <center><img src="{{ asset('assets/img/pict-siswa/jurnal.png') }}" class="" width="300"
                                 alt="main_logo"></center>
                     </div>
                 </div>
                 <div class="card-body">
-
                     <h6 class="mb-0 ">JURNAL</h6>
                     <p class="text-sm "> <span class="font-weight-bolder"></span>Jangan Lupa Absen Ya kak!</p>
                     <hr class="dark horizontal">
@@ -84,7 +83,7 @@
                     <p class="text-sm ">Cek sertifikat anda</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/kelassiswa">Click Disini</a>
+                        <a href="/siswa/sertifikat">Click Disini</a>
                     </div>
                 </div>
             </div>
@@ -98,7 +97,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h6 class="mb-0 ">Jurusan</h6>
+                    <h6 class="mb-0 ">JURUSAN</h6>
                     <p class="text-sm ">Cari dan Tambah jurusan untuk siswa</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">

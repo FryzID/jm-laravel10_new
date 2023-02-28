@@ -49,6 +49,9 @@
                     <span class="nav-link-text ms-1">Tapel</span>
                 </a>
             </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MASTER DATA USER</h6>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('humas/dudi') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/dudi">
@@ -94,6 +97,9 @@
                     <span class="nav-link-text ms-1">Kelas Siswa</span>
                 </a>
             </li>
+            <li class="nav-item mt-3">
+                <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">MASTER DATA SISWA PKL</h6>
+            </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('humas/siswapkl') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/siswapkl">
@@ -101,6 +107,15 @@
                         <i class="fa fa-user me-sm-1"></i>
                     </div>
                     <span class="nav-link-text ms-1">Siswa PKL</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('humas/sertifikat') ? 'active bg-gradient-success' : "" }}"
+                    href="/humas/sertifikat">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Sertifikat Siswa PKL</span>
                 </a>
             </li>
         </ul>

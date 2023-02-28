@@ -22,11 +22,11 @@
                                     @csrf
                                     <div class="input-group input-group-outline my-3">
                                         <label class="form-label">Username</label>
-                                        <input type="text" name="username" class="form-control">
+                                        <input type="text" name="username" class="form-control" required autofocus>
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="form-label">Password</label>
-                                        <input type="password" name="password" class="form-control">
+                                        <input type="password" name="password" class="form-control" required autofocus>
                                     </div>
                                     <div class="form-check form-switch d-flex align-items-center mb-3">
                                         <input class="form-check-input" type="checkbox" id="rememberMe" checked>
@@ -51,7 +51,7 @@
                                 </script>,
                                 di buat dengan <i class="fa fa-heart" aria-hidden="true"></i> by
                                 <a href="{{ env('APP_URL') }}" class="font-weight-bold text-white"
-                                    target="_blank">Marleth Young Developer</a>
+                                    target="_blank">SIJUMA</a>
                             </div>
                         </div>
                         <div class="col-12 col-md-6 my-auto text-white">

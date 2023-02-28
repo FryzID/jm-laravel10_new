@@ -7,11 +7,11 @@
 
     <!-- SIDEBAR -->
     @if ( Str::length(Auth::guard('humas')->user()) > 0)
-        @include('partials.sidebar-humas')
+        @include('partials.sidebar.sidebar-humas')
     @elseif ( Str::length(Auth::guard('guru')->user()) > 0)
-        @include('partials.sidebar-guru')
+        @include('partials.sidebar.sidebar-guru')
     @elseif ( Str::length(Auth::guard('dudi')->user()) > 0)
-        @include('partials.sidebar-dudi')
+        @include('partials.sidebar.sidebar-dudi')
     @endif
 
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">

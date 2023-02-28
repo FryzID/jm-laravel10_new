@@ -45,24 +45,7 @@
                                 <td>{{ $jurnal->keterangan }}</td>
                                 <td>{{ $jurnal->kegiatan }}</td>
                                 <td>{{ $jurnal->konfirmasi_dudi }}</td>
-                                <td class="budget">
-                                    <span class="center">
-                                        <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
-                                            data-toggle="modal" data-target="#form-detail{{ $jurnal->jurnal_id }}"><i
-                                                class="fa fa-eye"></i></a>
-                                        <button class="btn btn-circle btn-primary border-0 m-1" data-bs-toggle="modal"
-                                            data-bs-target="#form-edit{{ $jurnal>jurnal_id }}"><i
-                                                class="fa fa-pen"></i></button>
-                                        <form action="/humas/jurnal/{{ $jurnal->jurnal_id }}" method="post"
-                                            class="d-inline">
-                                            @method('DELETE')
-                                            @csrf
-                                            <button class="btn btn-circle btn-danger border-0 m-1"
-                                                onclick="return confirm(' Apakah Kamu Yakin Akan Dihapus? ')"><i
-                                                    class="fa fa-trash"></i></button>
-                                        </form>
-                                    </span>
-                                </td>
+                                
                             </tr>
                             @endforeach
                         </tbody>
@@ -74,8 +57,6 @@
 </div>
 
 <!-- MODAL -->
-@include('Humas.jurnal.create')
-{{-- @include('jurnals.edit')
-@include('jurnals.detail') --}}
+@include('Humas.jurnals.create')
 
 @endsection

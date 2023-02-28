@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Humas;
+namespace App\Http\Controllers\Siswa;
 
 use App\Http\Controllers\Controller;
 use App\Models\Sertifikat;
@@ -17,7 +17,7 @@ class SertifikatController extends Controller
     public function index()
     {
         $sertifikats = Sertifikat::all();
-        return view('Humas.sertifikats.index', compact('sertifikats'), [
+        return view('Siswa.sertifikats.index', compact('sertifikats'), [
             'title' => "Sertifikat Siswa PKL",
             'siswapkls' => SiswaPkl::all(),
         ]);
@@ -41,18 +41,7 @@ class SertifikatController extends Controller
      */
     public function store(Request $request)
     {
-        $doc = $request->dokumen;
-        $namaFile = time().rand(100, 999).".".$doc->getClientOriginalExtension();
-
-        $dataUpload = new Sertifikat;
-        $dataUpload->siswapkl_id = $request->siswapkl_id;
-        $dataUpload->nama_sertifikat = $request->nama_sertifikat;
-        $dataUpload->dokumen = $namaFile;
-
-        $doc->move(public_path().'/storage/sertifikats', $namaFile);
-        $dataUpload->save();
-
-        return redirect('humas/sertifikat')->with('success', 'Selamat Data Telah Ditambahkan!!');
+        //
     }
 
     /**
