@@ -29,7 +29,7 @@
                     <p class="text-sm "> <span class="font-weight-bolder"></span>Jangan Lupa Absen Ya kak!</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/datahumas">Click Disini</a>
+                        <a href="/humas/jurnal">Click Disini</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <p class="text-sm ">Beberapa Riwayat Absen Anda</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/guru">Click Disini</a>
+                        <a href="/humas/jurnal">Click Disini</a>
                     </div>
                 </div>
             </div>

@@ -24,6 +24,7 @@ use App\Http\Controllers\Dudi\NilaiNonteknisController as DudiNilaiNonteknisCont
 
 use App\Http\Controllers\Siswa\SertifikatController as SiswaSertifikatController;
 use App\Http\Controllers\Siswa\NilaiNonteknisController as SiswaNilaiNonteknisController;
+use App\Http\Controllers\Siswa\JurnalController as SiswaJurnalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,7 @@ Route::group(['middleware' => ['auth:humas', 'ceklevel:Humas']], function(){
     Route::resource('humas/siswapkl', HumasSiswaPklController::class);
     Route::resource('humas/datahumas', HumasHumasController::class);
     Route::resource('humas/jurnal', HumasJurnalController::class);
+    Route::post('/humas/konfirmasi/{id}', [HumasJurnalController::class,'konfirmasi']);
     Route::resource('humas/sertifikat', HumasSertifikatController::class);
     Route::resource('humas/nilai-nonteknis', HumasNilaiNonteknisController::class);
 
@@ -107,4 +109,5 @@ Route::group(['middleware' => ['auth:siswa', 'ceklevel:Siswa']], function(){
 
     Route::resource('siswa/sertifikat', SiswaSertifikatController::class);
     Route::resource('siswa/nilai-nonteknis', SiswaNilaiNonteknisController::class);
+    Route::resource('siswa/jurnal', SiswaJurnalController::class);
 });

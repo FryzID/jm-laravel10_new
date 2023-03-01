@@ -37,6 +37,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ Request::is('siswa/jurnal') ? 'active text-success' : "" }}"
+                        href="/siswa/jurnal">
+                        <i class="fa fa-home me-sm-1"></i>
+                        <span class="nav-link-text ms-1">Jurnal</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#logoutModal" type="button">
                         <i class="fas fa-sign-out-alt fixed-plugin-button-nav cursor-pointer"></i>
                         <span class="nav-link-text ms-1">Logout</span>

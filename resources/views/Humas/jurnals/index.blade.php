@@ -6,10 +6,6 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="modal-header bg-gradient-success shadow-success border-radius-lg p-3">
                     <h3 class="text-white" id="judul">{{ $title }}</h3>
-                    <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal"
-                        data-bs-target="#form-create">
-                        <i class="fa fa-plus"></i>
-                    </button>
                 </div>
             </div>
             <div class="card-body">
@@ -29,8 +25,8 @@
                                 <th scope="col">Absen Keluar</th>
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Kegiatan</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Konfirmasi Dudi</th>
-                                <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
@@ -44,8 +40,38 @@
                                 <td>{{ $jurnal->absen_keluar }}</td>
                                 <td>{{ $jurnal->keterangan }}</td>
                                 <td>{{ $jurnal->kegiatan }}</td>
-                                <td>{{ $jurnal->konfirmasi_dudi }}</td>
-                                
+                                <td>
+                                    @if( $jurnal->konfirmasi_dudi === 'diterima' )
+                                    <h5><span class="badge bg-gradient-primary">Diterima</span></h5>
+                                    @elseif ( $jurnal->konfirmasi_dudi === 'tidak diterima' )
+                                    <h5><span class="badge bg-gradient-danger">Tidak Diterima</span>
+                                    </h5>
+                                    @else
+                                    <h5><span class="badge bg-gradient-warning">Dalam Proses</span>
+                                    </h5>
+                                    @endif
+                                </td>
+                                <td>
+                                    @if(empty($jurnal->konfirmasi_dudi))
+                                    <form action="/humas/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
+                                        class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="konfirmasi_dudi" value="diterima">
+                                        <button class="btn btn-sm bg-gradient-success"
+                                            onclick="return confirm(' Apakah Kamu Yakin Dengan Ini?')">Terima</button>
+                                    </form>
+                                    <form action="/humas/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
+                                        class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="konfirmasi_dudi" value="tidak diterima">
+                                        <button class="btn btn-sm bg-gradient-danger"
+                                            onclick="return confirm(' Apakah Kamu Yakin Dengan Ini?')">Tidak
+                                            Diterima</button>
+                                    </form>
+                                    @else
+                                    <h5><span class="badge bg-gradient-warning">Status Telah Ada</span></h5>
+                                    @endif
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -55,8 +81,5 @@
         </div>
     </div>
 </div>
-
-<!-- MODAL -->
-@include('Humas.jurnals.create')
 
 @endsection

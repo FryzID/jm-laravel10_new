@@ -119,6 +119,15 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('humas/jurnal') ? 'active bg-gradient-success' : "" }}"
+                    href="/humas/jurnal">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Jurnal Siswa PKL</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('humas/nilai-nonteknis') ? 'active bg-gradient-success' : "" }}"
                     href="/humas/nilai-nonteknis">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">

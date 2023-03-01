@@ -21,7 +21,7 @@ return new class extends Migration
             $table->time('absen_keluar');
             $table->string('keterangan');
             $table->text('kegiatan');
-            $table->integer('konfirmasi_dudi');
+            $table->string('konfirmasi_dudi')->nullable();
             $table->timestamps();
 
             $table->foreign('siswapkl_id')->references('siswapkl_id')->on('siswa_pkls');

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Humas;
+namespace App\Http\Controllers\Siswa;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jurnal;
@@ -18,10 +18,11 @@ class JurnalController extends Controller
      */
     public function index()
     {
-        return view('Humas.jurnals.index', [
+        return view('Siswa.jurnals.index', [
             'title' => "Data Jurnal Siswa PKL",
             'jurnals' => Jurnal::latest()->get(),
             'siswapkls' => SiswaPkl::all(),
+            'date' => date('d/m/Y'),
         ]);
     }
 
@@ -43,7 +44,21 @@ class JurnalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $jurnals = $request->validate([
+            'siswapkl_id' => 'required|max:255',
+            'tanggal' => 'required|max:255',
+            'absen_masuk' => 'required|max:255',
+            'absen_keluar' => 'required|max:255',
+            'keterangan' => 'required|max:255',
+            'kegiatan' => 'required|max:255',
+            'konfirmasi_dudi',
+        ]);
+
+        Jurnal::create($jurnals);
+
+        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
+        // kembalikan ke halaman post
+        return redirect('/siswa/jurnal');
     }
 
     /**
@@ -90,18 +105,7 @@ class JurnalController extends Controller
     {
         //
     }
-
     public function jurnalexport(){
         return Excel::download(new JurnalExport, 'Data-Jurnal.xlsx');
-    }
-
-    public function konfirmasi(Request $request, $id)
-    {
-        $jurnal = Jurnal::where('jurnal_id', $id)->first();
-        $jurnal->konfirmasi_dudi = $request->konfirmasi_dudi;
-
-        $jurnal->update();
-
-        return redirect('/humas/jurnal')->with('success', 'Selamat Berhasil Mengkonfimasi!!');
     }
 }

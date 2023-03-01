@@ -9,23 +9,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form role="form text-left" action="/humas/jurnal" method="post">
+            <form role="form text-left" action="/siswa/jurnal" method="post">
                 <div class="modal-body">
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
                         <select class="form-control " id="exampleFormControlInput1" name="siswapkl_id" required>
-                            <option value="">Pilih Siswa PKL</option>
+                            <option value="">Pilih Siswa</option>
                             @foreach( $siswapkls as $siswapkl)
-                            <option value="{{ $siswapkl->siswapkl_id }}">
-                                {{ $siswapkl->kelassiswa->kelas->level_kelas . ' ' . $siswapkl->kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $siswapkl->kelassiswa->kelas->nama_kelas . ' ' . $siswapkl->kelassiswa->siswa->nama_siswa . ' ' . $siswapkl->kelassiswa->tapel->tapel }}
+                            <option value="{{ $siswapkl->siswapkl_id }}">{{ $siswapkl->kelassiswa->siswa->nama_siswa }}
                             </option>
                             @endforeach
                         </select>
                     </div>
                     <div class="input-group input-group-outline my-3">
-                        {{-- <label class="form-label">Tanggal</label> --}}
-                        <input type="date" class="form-control" name="tanggal" id="exampleFormControlInput1" required>
+                        <input type="date" class="form-control" name="tanggal" value="{{ $date }}"
+                            id="exampleFormControlInput1" required >
                     </div>
                     <div class="input-group input-group-outline my-3">
                         <label class="form-label">Absen Masuk</label>
@@ -45,11 +44,6 @@
                     <div class="input-group input-group-outline my-3">
                         <label class="form-label">Kegiatan</label>
                         <input type="text" class="form-control" name="kegiatan" id="exampleFormControlInput1" required>
-                    </div>
-                    <div class="input-group input-group-outline my-3">
-                        <label class="form-label">Konfirmasi Dudi</label>
-                        <input type="number" class="form-control" name="konfirmasi_dudi" id="exampleFormControlInput1"
-                            required>
                     </div>
                 </div>
                 <div class="modal-footer">
