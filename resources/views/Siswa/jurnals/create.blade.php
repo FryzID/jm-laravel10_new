@@ -14,13 +14,9 @@
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
-                        <select class="form-control " id="exampleFormControlInput1" name="siswapkl_id" required>
-                            <option value="">Pilih Siswa</option>
-                            @foreach( $siswapkls as $siswapkl)
-                            <option value="{{ $siswapkl->siswapkl_id }}">{{ $siswapkl->kelassiswa->siswa->nama_siswa }}
-                            </option>
-                            @endforeach
-                        </select>
+                        <input type="text" class="form-control" name="tanggal" value="{{ Auth::guard('siswa')->user()->nama_siswa }}"
+                            id="exampleFormControlInput1" required readonly >
+                            <input type="number" name="siswapkl_id" hidden value="{{ $siswapklid }}">
                     </div>
                     <div class="input-group input-group-outline my-3">
                         <input type="date" class="form-control" name="tanggal" value="{{ $date }}"

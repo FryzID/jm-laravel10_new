@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Humas;
+namespace App\Http\Controllers\Guru;
 
 use App\Http\Controllers\Controller;
 use App\Models\Jurnal;
@@ -18,7 +18,7 @@ class JurnalController extends Controller
      */
     public function index()
     {
-        return view('Humas.jurnals.index', [
+        return view('Guru.jurnals.index', [
             'title' => "Data Jurnal Siswa PKL",
             'jurnals' => Jurnal::latest()->get(),
             'siswapkls' => SiswaPkl::all(),

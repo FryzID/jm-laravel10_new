@@ -32,6 +32,15 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('guru/jurnal') ? 'active bg-gradient-success' : "" }}"
+                    href="/guru/jurnal">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Jurnal Siswa PKL</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('guru/nilai-nonteknis') ? 'active bg-gradient-success' : "" }}"
                     href="/guru/nilai-nonteknis">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -61,7 +70,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">Pilih "Keluar" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.</div>
+                <div class="modal-body">Pilih "Keluar" di bawah jika Anda siap untuk mengakhiri sesi Anda saat ini.
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Kembali</button>
                     <a class="btn btn-primary" href="/logout">Logout</a>

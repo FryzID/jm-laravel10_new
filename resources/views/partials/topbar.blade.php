@@ -15,15 +15,7 @@
             <ul class="navbar-nav  justify-content-end">
                 <li class="nav-item d-flex align-items-center">
                     <i class="fa fa-user me-sm-1"></i>
-                    @if ( Str::length(Auth::guard('humas')->user()) > 0)
-                    <span class="d-sm-inline d-none">{{ Auth::guard('humas')->user()->nama_humas }}</span>
-                    @elseif ( Str::length(Auth::guard('dudi')->user()) > 0)
-                    <span class="d-sm-inline d-none">{{ Auth::guard('dudi')->user()->nama_dudi }}</span>
-                    @elseif ( Str::length(Auth::guard('guru')->user()) > 0)
-                    <span class="d-sm-inline d-none">{{ Auth::guard('guru')->user()->nama_guru }}</span>
-                    @elseif ( Str::length(Auth::guard('siswa')->user()) > 0)
                     <span class="d-sm-inline d-none">{{ Auth::guard('siswa')->user()->nama_siswa }}</span>
-                    @endif
                 </li>
             </ul>
         </div>

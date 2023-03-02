@@ -26,10 +26,12 @@
                                 <th scope="col">Keterangan</th>
                                 <th scope="col">Kegiatan</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Konfirmasi Dudi</th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
                             @foreach( $jurnals as $jurnal )
+                            @if($jurnal->siswapkl->dudi->dudi_id == Auth::guard('dudi')->user()->dudi_id)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $jurnal->siswapkl->kelassiswa->kelas->level_kelas . ' ' . $jurnal->siswapkl->kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $jurnal->siswapkl->kelassiswa->kelas->nama_kelas . ' ' . $jurnal->siswapkl->kelassiswa->siswa->nama_siswa . ' ' . $jurnal->siswapkl->kelassiswa->tapel->tapel }}
@@ -48,7 +50,29 @@
                                     <span class="badge bg-gradient-warning">Dalam Proses</span>
                                     @endif
                                 </td>
+                                <td>
+                                    @if(empty($jurnal->konfirmasi_dudi))
+                                    <form action="/humas/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
+                                        class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="konfirmasi_dudi" value="diterima">
+                                        <button class="badge bg-gradient-success"
+                                            onclick="return confirm(' Apakah Kamu Yakin Dengan Ini?')">Terima</button>
+                                    </form>
+                                    <form action="/humas/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
+                                        class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="konfirmasi_dudi" value="tidak diterima">
+                                        <button class="badge bg-gradient-danger"
+                                            onclick="return confirm(' Apakah Kamu Yakin Dengan Ini?')">Tidak
+                                            Diterima</button>
+                                    </form>
+                                    @else
+                                    <span class="badge bg-gradient-warning">Status Telah Ada</span>
+                                    @endif
+                                </td>
                             </tr>
+                            @endif
                             @endforeach
                         </tbody>
                     </table>

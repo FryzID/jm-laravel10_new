@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\JurnalExport;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\KelasSiswa;
+
 class JurnalController extends Controller
 {
     /**
@@ -18,11 +21,18 @@ class JurnalController extends Controller
      */
     public function index()
     {
+        $loginId = Auth::guard('siswa')->user()->siswa_id;
+        $kelasSiswa = KelasSiswa::where('siswa_id', $loginId)->first();
+        $kelasSiswaId = $kelasSiswa->kelassiswa_id;
+        $siswaPkl = SiswaPkl::where('kelassiswa_id', $kelasSiswaId)->first();
+        $siswaPklId = $siswaPkl->siswapkl_id;
+
         return view('Siswa.jurnals.index', [
             'title' => "Data Jurnal Siswa PKL",
             'jurnals' => Jurnal::latest()->get(),
             'siswapkls' => SiswaPkl::all(),
             'date' => date('d/m/Y'),
+            'siswapklid' => $siswaPklId 
         ]);
     }
 

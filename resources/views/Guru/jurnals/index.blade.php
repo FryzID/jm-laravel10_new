@@ -30,6 +30,7 @@
                         </thead>
                         <tbody id="tbody">
                             @foreach( $jurnals as $jurnal )
+                            @if($jurnal->siswapkl->guru->guru_id == Auth::guard('guru')->user()->guru_id)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $jurnal->siswapkl->kelassiswa->kelas->level_kelas . ' ' . $jurnal->siswapkl->kelassiswa->kelas->jurusan->nama_jurusan . ' ' . $jurnal->siswapkl->kelassiswa->kelas->nama_kelas . ' ' . $jurnal->siswapkl->kelassiswa->siswa->nama_siswa . ' ' . $jurnal->siswapkl->kelassiswa->tapel->tapel }}
@@ -48,8 +49,8 @@
                                     <span class="badge bg-gradient-warning">Dalam Proses</span>
                                     @endif
                                 </td>
-                            </tr>
-                            @endforeach
+                                @endif
+                                @endforeach
                         </tbody>
                     </table>
                 </div>

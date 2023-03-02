@@ -7,11 +7,11 @@
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="modal-header bg-gradient-success shadow-success border-radius-lg p-3">
-                        <h3 class="text-white" id="judul">SELAMAT DATANG DI SIJUMA</h3>
+                        <h3 class="text-white" id="judul">SELAMAT DATANG {{ strtoupper(Auth::guard('siswa')->user()->nama_siswa) }}</h3>
                     </div>
                 </div>
                 <div class="card-body">
-                    SELAMAT DATANG {{ Auth::guard('siswa')->user()->nama_siswa }} SILAHKAN PILIH MENU YANG ANDA BUTUHKAN
+                    SILAHKAN PILIH MENU YANG ANDA BUTUHKAN DI SIJUMA
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
                     <p class="text-sm "> <span class="font-weight-bolder"></span>Jangan Lupa Absen Ya kak!</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/jurnal">Click Disini</a>
+                        <a href="/siswa/jurnal">Click Disini</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <p class="text-sm ">Beberapa Riwayat Absen Anda</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/jurnal">Click Disini</a>
+                        <a href="/siswa/jurnal">Click Disini</a>
                     </div>
                 </div>
             </div>

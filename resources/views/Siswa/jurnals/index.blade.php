@@ -66,13 +66,11 @@
                                             <td>{{ $jurnal->kegiatan }}</td>
                                             <td>
                                                 @if( $jurnal->konfirmasi_dudi === 'diterima' )
-                                                <h5><span class="badge bg-gradient-primary">Diterima</span></h5>
+                                                <span class="badge bg-gradient-success">Diterima</span>
                                                 @elseif ( $jurnal->konfirmasi_dudi === 'tidak diterima' )
-                                                <h5><span class="badge bg-gradient-danger">Tidak Diterima</span>
-                                                </h5>
+                                                <span class="badge bg-gradient-danger">Tidak Diterima</span>
                                                 @else
-                                                <h5><span class="badge bg-gradient-warning">Dalam Proses</span>
-                                                </h5>
+                                                <span class="badge bg-gradient-warning">Dalam Proses</span>
                                                 @endif
                                             </td>
                                         </tr>
