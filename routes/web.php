@@ -15,18 +15,22 @@ use App\Http\Controllers\Humas\TapelController as HumasTapelController;
 use App\Http\Controllers\Humas\SertifikatController as HumasSertifikatController;
 use App\Http\Controllers\Humas\NilaiNonteknisController as HumasNilaiNonteknisController;
 
+use App\Http\Controllers\Guru\JurnalController as GuruJurnalController;
 use App\Http\Controllers\Guru\SiswaPklController as GuruSiswaPklController;
 use App\Http\Controllers\Guru\NilaiNonteknisController as GuruNilaiNonteknisController;
-use App\Http\Controllers\Guru\JurnalController as GuruJurnalController;
 
+use App\Http\Controllers\Dudi\JurnalController as DudiJurnalController;
 use App\Http\Controllers\Dudi\SiswaPklController as DudiSiswaPklController;
 use App\Http\Controllers\Dudi\SertifikatController as DudiSertifikatController;
+use App\Http\Controllers\Dudi\NilaiTeknisController as DudiNilaiTeknisController;
 use App\Http\Controllers\Dudi\NilaiNonteknisController as DudiNilaiNonteknisController;
-use App\Http\Controllers\Dudi\JurnalController as DudiJurnalController;
+use App\Http\Controllers\Dudi\AspekPenilaianTeknisController as DudiAspekPenilaianTeknisController;
 
+
+use App\Http\Controllers\Siswa\JurnalController as SiswaJurnalController;
 use App\Http\Controllers\Siswa\SertifikatController as SiswaSertifikatController;
 use App\Http\Controllers\Siswa\NilaiNonteknisController as SiswaNilaiNonteknisController;
-use App\Http\Controllers\Siswa\JurnalController as SiswaJurnalController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -101,7 +105,9 @@ Route::group(['middleware' => ['auth:dudi', 'ceklevel:Dudi']], function(){
     Route::resource('dudi/jurnal', DudiJurnalController::class);
     Route::post('/dudi/konfirmasi/{id}', [DudiJurnalController::class,'konfirmasi']);
 
+    Route::resource('dudi/aspek-penilaian-teknis', DudiAspekPenilaianTeknisController::class);
     Route::resource('dudi/nilai-nonteknis', DudiNilaiNonteknisController::class);
+    Route::resource('dudi/nilai-teknis', DudiNilaiTeknisController::class);
     Route::resource('dudi/sertifikat', DudiSertifikatController::class);
     Route::resource('dudi/siswapkl', DudiSiswaPklController::class);
     Route::get('dudi/siswapkl-export',[DudiSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');

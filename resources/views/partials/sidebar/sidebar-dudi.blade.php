@@ -50,6 +50,24 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('dudi/aspek-penilaian-teknis') ? 'active bg-gradient-success' : "" }}"
+                    href="/dudi/aspek-penilaian-teknis">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Aspek Penilaian Teknis</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ Request::is('dudi/nilai-teknis') ? 'active bg-gradient-success' : "" }}"
+                    href="/dudi/nilai-teknis">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="fa fa-user me-sm-1"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Nilai Teknis</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('dudi/nilai-nonteknis') ? 'active bg-gradient-success' : "" }}"
                     href="/dudi/nilai-nonteknis">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
