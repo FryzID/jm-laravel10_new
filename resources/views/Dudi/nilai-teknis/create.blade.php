@@ -31,11 +31,11 @@
                         <select class="form-control " id="exampleFormControlInput1" name="aspek_penilaian_teknis_id" required>
                             <option value="">Aspek Penilaian Teknis</option>
                             @foreach( $aspekpenilaiantekniss as $aspekpenilaianteknis)
-
+                            @if($aspekpenilaianteknis->dudi_id == Auth::guard('dudi')->user()->dudi_id)
                             <option value="{{ $aspekpenilaianteknis->aspek_penilaian_teknis_id }}">
-                                {{ $aspekpenilaianteknis->aspek_penilaian_teknis }}
+                                {{ $aspekpenilaianteknis->aspek_penilaian }}
                             </option>
-
+                            @endif
                             @endforeach
                         </select>
                     </div>

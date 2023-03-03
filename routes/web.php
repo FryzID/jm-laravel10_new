@@ -13,10 +13,12 @@ use App\Http\Controllers\Humas\SiswaController as HumasSiswaController;
 use App\Http\Controllers\Humas\SiswaPklController as HumasSiswaPklController;
 use App\Http\Controllers\Humas\TapelController as HumasTapelController;
 use App\Http\Controllers\Humas\SertifikatController as HumasSertifikatController;
+use App\Http\Controllers\Humas\NilaiTeknisController as HumasNilaiTeknisController;
 use App\Http\Controllers\Humas\NilaiNonteknisController as HumasNilaiNonteknisController;
 
 use App\Http\Controllers\Guru\JurnalController as GuruJurnalController;
 use App\Http\Controllers\Guru\SiswaPklController as GuruSiswaPklController;
+use App\Http\Controllers\Guru\NilaiTeknisController as GuruNilaiTeknisController;
 use App\Http\Controllers\Guru\NilaiNonteknisController as GuruNilaiNonteknisController;
 
 use App\Http\Controllers\Dudi\JurnalController as DudiJurnalController;
@@ -29,6 +31,7 @@ use App\Http\Controllers\Dudi\AspekPenilaianTeknisController as DudiAspekPenilai
 
 use App\Http\Controllers\Siswa\JurnalController as SiswaJurnalController;
 use App\Http\Controllers\Siswa\SertifikatController as SiswaSertifikatController;
+use App\Http\Controllers\Siswa\NilaiTeknisController as SiswaNilaiTeknisController;
 use App\Http\Controllers\Siswa\NilaiNonteknisController as SiswaNilaiNonteknisController;
 
 use Illuminate\Support\Facades\Route;
@@ -71,6 +74,7 @@ Route::group(['middleware' => ['auth:humas', 'ceklevel:Humas']], function(){
     Route::resource('humas/datahumas', HumasHumasController::class);
     Route::resource('humas/jurnal', HumasJurnalController::class);
     Route::resource('humas/sertifikat', HumasSertifikatController::class);
+    Route::resource('humas/nilai-teknis', HumasNilaiTeknisController::class);
     Route::resource('humas/nilai-nonteknis', HumasNilaiNonteknisController::class);
 
     Route::get('humas/dudi-export',[HumasDudiController::class,'dudiexport'])->name('export-dudi');
@@ -92,8 +96,9 @@ Route::group(['middleware' => ['auth:guru', 'ceklevel:Guru']], function(){
     })->middleware('auth');
 
     Route::resource('guru/jurnal', GuruJurnalController::class);
-    Route::resource('guru/nilai-nonteknis', GuruNilaiNonteknisController::class);
     Route::resource('guru/siswapkl', GuruSiswaPklController::class);
+    Route::resource('guru/nilai-teknis', GuruNilaiTeknisController::class);
+    Route::resource('guru/nilai-nonteknis', GuruNilaiNonteknisController::class);
     Route::get('guru/siswapkl-export',[GuruSiswaPklController::class,'siswapklexport'])->name('export-siswapkl');
 });
 
@@ -103,7 +108,7 @@ Route::group(['middleware' => ['auth:dudi', 'ceklevel:Dudi']], function(){
     })->middleware('auth');
 
     Route::resource('dudi/jurnal', DudiJurnalController::class);
-    Route::post('/dudi/konfirmasi/{id}', [DudiJurnalController::class,'konfirmasi']);
+    Route::post('/dudi/jurnal/konfirmasi/{id}', [DudiJurnalController::class,'konfirmasi']);
 
     Route::resource('dudi/aspek-penilaian-teknis', DudiAspekPenilaianTeknisController::class);
     Route::resource('dudi/nilai-nonteknis', DudiNilaiNonteknisController::class);
@@ -118,7 +123,8 @@ Route::group(['middleware' => ['auth:siswa', 'ceklevel:Siswa']], function(){
         return view('siswa.dashboard');
     })->middleware('auth');
 
-    Route::resource('siswa/sertifikat', SiswaSertifikatController::class);
-    Route::resource('siswa/nilai-nonteknis', SiswaNilaiNonteknisController::class);
     Route::resource('siswa/jurnal', SiswaJurnalController::class);
+    Route::resource('siswa/sertifikat', SiswaSertifikatController::class);
+    Route::resource('siswa/nilai-teknis', SiswaNilaiTeknisController::class);
+    Route::resource('siswa/nilai-nonteknis', SiswaNilaiNonteknisController::class);
 });

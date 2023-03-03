@@ -13,5 +13,10 @@ class AspekPenilaianTeknis extends Model
     protected $fillable = [
         'aspek_penilaian_teknis_id',
         'aspek_penilaian',
+        'dudi_id',
     ];
+
+    public function dudi() {
+        return $this->belongsTo(Dudi::class, 'dudi_id');
+    }
 }

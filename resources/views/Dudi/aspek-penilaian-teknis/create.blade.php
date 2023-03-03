@@ -18,6 +18,9 @@
                         <input type="text" class="form-control" name="aspek_penilaian" id="exampleFormControlInput1"
                             required>
                     </div>
+                    <input type="hidden" class="form-control" name="dudi_id"
+                        value="{{ Auth::guard('dudi')->user()->dudi_id }}" id="exampleFormControlInput1" required
+                        readonly>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary">Tambah</button>

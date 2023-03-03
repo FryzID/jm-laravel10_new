@@ -7,7 +7,8 @@
             <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="modal-header bg-gradient-success shadow-success border-radius-lg p-3">
-                        <h3 class="text-white" id="judul">SELAMAT DATANG {{ strtoupper(Auth::guard('siswa')->user()->nama_siswa) }}</h3>
+                        <h3 class="text-white" id="judul">SELAMAT DATANG
+                            {{ strtoupper(Auth::guard('siswa')->user()->nama_siswa) }}</h3>
                     </div>
                 </div>
                 <div class="card-body">
@@ -116,11 +117,11 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <h6 class="mb-0 ">DU/DI</h6>
-                    <p class="text-sm ">Pengelolaan Oleh DU/DI</p>
+                    <h6 class="mb-0 ">NILAI TEKNIS</h6>
+                    <p class="text-sm ">Pengelolaan Nilai Teknis</p>
                     <hr class="dark horizontal">
                     <div class="d-flex ">
-                        <a href="/humas/dudi">Click Disini</a>
+                        <a href="/siswa/nilai-teknis">Click Disini</a>
                     </div>
                 </div>
             </div>

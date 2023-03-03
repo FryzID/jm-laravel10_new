@@ -52,14 +52,14 @@
                                 </td>
                                 <td>
                                     @if(empty($jurnal->konfirmasi_dudi))
-                                    <form action="/humas/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
+                                    <form action="/dudi/jurnal/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
                                         class="d-inline">
                                         @csrf
                                         <input type="hidden" name="konfirmasi_dudi" value="diterima">
                                         <button class="badge bg-gradient-success"
                                             onclick="return confirm(' Apakah Kamu Yakin Dengan Ini?')">Terima</button>
                                     </form>
-                                    <form action="/humas/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
+                                    <form action="/dudi/jurnal/konfirmasi/{{ $jurnal->jurnal_id }}" method="post"
                                         class="d-inline">
                                         @csrf
                                         <input type="hidden" name="konfirmasi_dudi" value="tidak diterima">

@@ -32,7 +32,7 @@
                             required>
                     </div>
                     <div class="input-group input-group-outline my-3">
-                        <input type="file" class="form-control" name="dokumen" id="exampleFormControlInput1"
+                        <input type="file" accept=".pdf,.jpg,.jpeg,.png" class="form-control" name="dokumen" id="exampleFormControlInput1"
                             required>
                     </div>
                 </div>

@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Siswa;
 
+use DateTime;
+use DateTimeZone;
 use App\Http\Controllers\Controller;
 use App\Models\Jurnal;
 use App\Models\SiswaPkl;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\JurnalExport;
-
 use Illuminate\Support\Facades\Auth;
 use App\Models\KelasSiswa;
 
@@ -54,6 +55,24 @@ class JurnalController extends Controller
      */
     public function store(Request $request)
     {
+        $loginId = Auth::guard('siswa')->user()->siswa_id;
+        $kelasSiswa = KelasSiswa::where('siswa_id', $loginId)->first();
+        $kelasSiswaId = $kelasSiswa->kelassiswa_id;
+        $siswaPkl = SiswaPkl::where('kelassiswa_id', $kelasSiswaId)->first();
+        $siswaPklId = $siswaPkl->siswapkl_id;
+
+        $timezone = 'Asia/Jakarta'; 
+        $date = new DateTime('now', new DateTimeZone($timezone)); 
+        $tanggal = $date->format('Y-m-d');
+
+        $select =Jurnal::where([
+            ['siswapkl_id','=', $siswaPklId ],
+            ['tanggal','=',$tanggal],
+        ])->first();
+
+        if ($select){
+            return redirect('/siswa/jurnal')->with('warning', 'Maaf Anda Sudah Mengisi Jurnal');
+        } else {
         $jurnals = $request->validate([
             'siswapkl_id' => 'required|max:255',
             'tanggal' => 'required|max:255',
@@ -69,6 +88,7 @@ class JurnalController extends Controller
         $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
         // kembalikan ke halaman post
         return redirect('/siswa/jurnal');
+        } 
     }
 
     /**

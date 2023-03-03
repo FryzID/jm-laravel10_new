@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('aspek_penilaian_teknis', function (Blueprint $table) {
             $table->id('aspek_penilaian_teknis_id');
             $table->string('aspek_penilaian');
+            $table->unsignedBigInteger('dudi_id');
             $table->timestamps();
+
+            $table->foreign('dudi_id')->references('dudi_id')->on('dudis');
         });
     }
 

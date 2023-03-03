@@ -42,7 +42,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ Request::is('dudi/sertifikat') ? 'active bg-gradient-success' : "" }}"
-                    href="/dudi/siswapkl">
+                    href="/dudi/sertifikat">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="fa fa-user me-sm-1"></i>
                     </div>

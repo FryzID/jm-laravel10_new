@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Dudi;
+namespace App\Http\Controllers\Humas;
 
 use App\Http\Controllers\Controller;
 use App\Models\AspekPenilaianTeknis;
+use App\Models\NilaiTeknis;
 use App\Models\SiswaPkl;
 use Illuminate\Http\Request;
 
-class AspekPenilaianTeknisController extends Controller
+class NilaiTeknisController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +17,11 @@ class AspekPenilaianTeknisController extends Controller
      */
     public function index()
     {
-        $aspekpenilaiantekniss = AspekPenilaianTeknis::all();
-        return view('Dudi.aspek-penilaian-teknis.index', compact('aspekpenilaiantekniss'), [
-            'title' => "Data Aspek Penilaian Teknis Siswa PKL",
+        $nilaitekniss = NilaiTeknis::all();
+        return view('Humas.nilai-teknis.index', compact('nilaitekniss'), [
+            'title' => "Data Nilai Teknis Siswa PKL",
+            'siswapkls' => SiswaPkl::all(),
+            'aspekpenilaiantekniss' => AspekPenilaianTeknis::all(),
         ]);
     }
 
@@ -40,15 +43,7 @@ class AspekPenilaianTeknisController extends Controller
      */
     public function store(Request $request)
     {
-        $aspekpenilaianteknis = $request->validate([
-            'aspek_penilaian' => 'required|max:255',
-            'dudi_id' => 'required|max:255',
-        ]);
-
-        AspekPenilaianTeknis::create($aspekpenilaianteknis);
-
-        $request->session()->flash('success', 'Selamat Data Telah Ditambahkan!!');
-        return redirect('/dudi/aspek-penilaian-teknis');
+       //
     }
 
     /**
@@ -82,15 +77,7 @@ class AspekPenilaianTeknisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        AspekPenilaianTeknis::find($id)->update([
-            'siswapkl_id' => $request->siswapkl_id, 'required|max:255',
-            'aspek_penilaian_id' => $request->nilai1,  'required|max:255',
-            'nilai' => $request->nilai2,  'required|max:255',
-        ]);
-
-        $request->session()->flash('success', 'Selamat Data Telah Diupdate!!');
-        // kembalikan ke halaman post
-        return redirect('/dudi/aspek-penilaian-teknis');
+      //
     }
 
     /**

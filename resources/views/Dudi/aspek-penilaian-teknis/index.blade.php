@@ -24,14 +24,17 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Aspek Penilaian</th>
+                                <th scope="col">Dudi</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach( $aspekpenilaiantekniss as $aspekpenilaianteknis )
+                            @if($aspekpenilaianteknis->dudi_id == Auth::guard('dudi')->user()->dudi_id)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $aspekpenilaianteknis->aspek_penilaian }}</td>
+                                <td>{{ $aspekpenilaianteknis->dudi->nama_dudi }}</td>
                                 <td class="budget">
                                     <span class="center">
                                         <a class="btn btn-circle btn-info border-0 m-1" onclick="getDetail()"
@@ -51,7 +54,7 @@
                                     </span>
                                 </td>
                             </tr>
-                    
+                            @endif
                             @endforeach
                         </tbody>
                     </table>
