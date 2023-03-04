@@ -28,11 +28,15 @@ class JurnalController extends Controller
         $siswaPkl = SiswaPkl::where('kelassiswa_id', $kelasSiswaId)->first();
         $siswaPklId = $siswaPkl->siswapkl_id;
 
+        $timezone = 'Asia/Jakarta'; 
+        $date = new DateTime('now', new DateTimeZone($timezone)); 
+        $tanggal = $date->format('Y-m-d');
+
         return view('Siswa.jurnals.index', [
             'title' => "Data Jurnal Siswa PKL",
             'jurnals' => Jurnal::latest()->get(),
             'siswapkls' => SiswaPkl::all(),
-            'date' => date('d/m/Y'),
+            'date' => $tanggal,
             'siswapklid' => $siswaPklId 
         ]);
     }

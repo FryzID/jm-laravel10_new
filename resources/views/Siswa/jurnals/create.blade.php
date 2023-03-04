@@ -14,22 +14,22 @@
                     @csrf
                     @method('post')
                     <div class="input-group input-group-outline my-3">
-                        <input type="text" class="form-control" name="tanggal" value="{{ Auth::guard('siswa')->user()->nama_siswa }}"
-                            id="exampleFormControlInput1" required readonly >
+                        <input type="text" class="form-control" name="siswapkl_id" value="{{ Auth::guard('siswa')->user()->nama_siswa }}"
+                            id="exampleFormControlInput1" required readonly>
                             <input type="number" name="siswapkl_id" hidden value="{{ $siswapklid }}">
                     </div>
                     <div class="input-group input-group-outline my-3">
                         <input type="date" class="form-control" name="tanggal" value="{{ $date }}"
-                            id="exampleFormControlInput1" required >
+                            id="exampleFormControlInput1" required readonly>
                     </div>
                     <div class="input-group input-group-outline my-3">
                         <label class="form-label">Absen Masuk</label>
-                        <input type="number" class="form-control" name="absen_masuk" id="exampleFormControlInput1"
+                        <input type="time" class="form-control" name="absen_masuk" id="exampleFormControlInput1"
                             required>
                     </div>
                     <div class="input-group input-group-outline my-3">
                         <label class="form-label">Absen Keluar</label>
-                        <input type="number" class="form-control" name="absen_keluar" id="exampleFormControlInput1"
+                        <input type="time" class="form-control" name="absen_keluar" id="exampleFormControlInput1"
                             required>
                     </div>
                     <div class="input-group input-group-outline my-3">
